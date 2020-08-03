@@ -1,0 +1,41 @@
+auto-reload  yes
+#confirm-exit yes
+
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key G end
+bind-key g home
+bind-key d pagedown
+bind-key u pageup
+bind-key l open
+bind-key h quit
+bind-key a toggle-article-read
+bind-key n next-unread
+bind-key N prev-unread
+bind-key D pb-download
+bind-key U show-urls
+bind-key x pb-delete
+
+
+color background            default      color236
+color end-of-text-marker    color238     color236
+color listnormal            white        color236    dim
+color listfocus             yellow       color240    dim
+color listnormal_unread     blue         color236
+color listfocus_unread      yellow       color240    bold
+color info                  cyan         color239    
+color article               color254     color236
+
+
+highlight article  "^(Feed|Title|Author|Link|Date):" color254 color236 underline
+highlight article  "https?://[^ ]+"                  blue     color236
+
+search-highlight-colors color254 yellow bold
+
+browser firefox
+macro v set browser "setsid -f mpv > /dev/null 2>&1" ; open-in-browser ; set browser "firefox"
+macro i set browser "~/.scripts/sxivweb/view.sh" ; open-in-browser ; set browser "firefox"

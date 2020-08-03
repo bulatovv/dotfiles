@@ -1,0 +1,36 @@
+[weather]
+command=~/.scripts/weather/weather.py
+interval=300
+
+[network_status]
+command=~/.scripts/network/status.sh
+interval=1
+
+#[network_speed]
+#command=~/.scripts/network/speed.py
+#interval=1
+
+[sound]
+command=~/.scripts/volume/volume.sh
+align=center
+min_width=46
+interval=1
+signal=5
+
+[battery]
+command=sleep 0.5;~/.scripts/battery/battery.sh
+interval=repeat
+align=center
+min_width=44
+
+[layout]
+command=sleep 0.2;~/.scripts/keyboard/layout.sh
+interval=repeat
+
+[time]
+command=date '+%H:%M'
+interval=30
+
+[datetime]
+command=date '+%d/%m/%Y'
+interval=60
