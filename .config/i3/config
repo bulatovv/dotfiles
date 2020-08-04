@@ -3,7 +3,7 @@
 ### COLORS
 set_from_resource $fg i3wm.color4 #f0f0f0
 set_from_resource $bg i3wm.background #f0f0f0
-set_from_resource $ur i3wm.color5 #f0f0f0
+set_from_resource $ur i3wm.color1 #f0f0f0
 set_from_resource $in i3wm.color6 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
@@ -45,7 +45,8 @@ bar {
     colors {
         background $bg
         focused_workspace $fg $bg $fg
-        inactive_workspace #808080 $bg #808080 
+        inactive_workspace #808080 $bg #808080
+        urgent_workspace   $ur $ur $bg
     }
 }
 
