@@ -1,6 +1,7 @@
 # vim filetype=i3
 
 ### COLORS
+font pango:monospace 8
 set_from_resource $fg i3wm.color4 #f0f0f0
 set_from_resource $bg i3wm.background #f0f0f0
 set_from_resource $ur i3wm.color1 #f0f0f0
@@ -46,13 +47,10 @@ bar {
         background $bg
         focused_workspace $fg $bg $fg
         inactive_workspace #808080 $bg #808080
-        urgent_workspace   $ur $ur $bg
+        urgent_workspace   $ur $ur #000000
     }
 }
 
-font pango:monospace 8
-
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # KEYBINDS
 
 # volume
