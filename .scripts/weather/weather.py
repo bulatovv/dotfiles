@@ -9,7 +9,7 @@ from sun import Sun
 import moon as Moon
 
 RETRIES = 5
-
+CACHE_FILE = f'{os.getenv("HOME")}/.cache/weather/last.tmp'
 headers = {
     'User-Agent':'Mozilla/5.0 (Linux; Android 10; SM-G975U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.93 Mobile Safari/537.36',
 }
@@ -66,23 +66,23 @@ def get_weather():
         icon = icons['moon'][Moon.getMoonPhase()]
     
     to_show = f'{icon} {condition[0].upper() + condition[1:]} {t}'
-    with open('/home/bulatov/.cache/weather/last.tmp', 'w') as cache:
+    with open(CACHE_FILE, 'w') as cache:
         cache.write(to_show)
 
     return(to_show)
 
 def get_last():
-    with open('/home/bulatov/.cache/weather/last.tmp', 'r') as cache:
+    with open(CACHE_FILE, 'r') as cache:
         return(cache.read())
 
 
 if __name__ == '__main__':
     print(get_weather())
-    '''for i in range(RETRIES):
+    for i in range(RETRIES):
         try:
             print(get_weather())
             break
         except Exception as ex:
             pass
     else:
-        print(get_last())'''
+        print(get_last())
