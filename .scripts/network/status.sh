@@ -1,16 +1,26 @@
 #!/bin/sh
 
-device=$(ls /sys/class/ieee80211/*/device/net)
-name=$(nmcli -c no c | grep "$device" | cut -d ' ' -f1)
+device=$1
+line=$(nmcli -t d | grep ^$device)
 
 
+state=$(echo $line | cut -d: -f3)
+connection=$(echo $line | cut -d: -f4)
 
-case $(nmcli g) in
-    *disconnected*) status="disconnected" color="#FF5555";;
-    *connected*) color=#50FA7B;;
-    *connecting*) status="connecting:" color=#50FA7B;;
+case $state in
+    connected*)
+        color="#50FA7B"
+        ;;
+    connecting*)
+        color="#F1FA8C"
+        ;;
+    disconnected*)
+        color="#FF5555"
+        ;;
+    unavailable*)
+        color="#4D4D4D"
 esac
 
-echo $status $name
-echo $status $name 
-echo $color
+echo $connection
+echo $connection
+echo $color 

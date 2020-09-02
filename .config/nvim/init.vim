@@ -22,11 +22,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 set autochdir
 
 " Keybindings
-nnoremap <C-j> <c-w>j
-nnoremap <C-k> <c-w>k
-nnoremap <C-h> <c-w>h
-nnoremap <C-l> <c-w>l
-
 
 " Lightline
 set noshowmode
