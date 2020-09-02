@@ -6,6 +6,7 @@ line=$(nmcli -t d | grep ^$device)
 
 state=$(echo $line | cut -d: -f3)
 connection=$(echo $line | cut -d: -f4)
+[ $connection="\n"  ] && connection='--'
 
 case $state in
     connected*)

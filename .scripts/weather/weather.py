@@ -77,7 +77,6 @@ def get_last():
 
 
 if __name__ == '__main__':
-    print(get_weather())
     for i in range(RETRIES):
         try:
             print(get_weather())
