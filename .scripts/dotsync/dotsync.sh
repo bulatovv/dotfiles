@@ -37,12 +37,12 @@ push () {
 
 main () {
     if [ $(confirm) = yes ]; then
-        echo "\033[31mSomething went wrong\033[0m" > /tmp/dotsync.log
+        echo -e "\033[31mSomething went wrong\033[0m" > /tmp/dotsync.log
         clear 2>>/tmp/dotsync.log &&
         copy 2>>/tmp/dotsync.log  && 
         push "$1" 2>>/tmp/dotsync.log  || cat /tmp/dotsync.log
     else
-        echo '\033[31mAborted\033[0m'
+        echo -e "\033[31mAborted\033[0m"
     fi
 }
 
