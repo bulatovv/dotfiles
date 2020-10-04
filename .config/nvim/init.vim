@@ -1,12 +1,14 @@
 " Vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
+
 Plug 'itchyny/lightline.vim'
+
 Plug 'ryanoasis/vim-devicons'
-Plug 'preservim/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'kiwec/vim-brainfuck'
 call plug#end()
 
@@ -14,11 +16,11 @@ call plug#end()
 autocmd BufWinEnter * if expand('%:e') == 'asm' | set ft=nasm | endif
 
 
-" NERDTree
-autocmd VimEnter * NERDTree | wincmd w
-autocmd TabEnter * NERDTreeMirror | wincmd w
+" Explorer
+autocmd VimEnter * CocCommand explorer --no-focus
+autocmd TabEnter * CocCommand explorer --no-focus
 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 set autochdir
 
 " Keybindings
@@ -31,6 +33,7 @@ let g:lightline = {
       \ }
 
 " Colortheme
+set termguicolors
 color dracula
 
 " Indents

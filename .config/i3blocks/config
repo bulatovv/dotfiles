@@ -1,6 +1,6 @@
 [weather]
 command=~/.scripts/weather/weather.py
-interval=300
+interval=1
 
 [wired_status]
 command=~/.scripts/network/status.sh enp2s0f1
