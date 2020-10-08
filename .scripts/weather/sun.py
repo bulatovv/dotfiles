@@ -45,10 +45,11 @@ def sunrise_equation(latitude, longtitude: float) -> float:
 def sunset_check(latitude, longtitude: float) -> bool:
     sunrise_time, sunset_time = sunrise_equation(latitude, longtitude)
     current_time = datetime.datetime.now().timestamp() / 86400 + 2440587.5
+    #print(sunrise_time, current_time, sunset_time)
     return not(
         sunrise_time < current_time < sunset_time
-            or
-        current_time < sunset_time < sunrise_time
+        #    or
+        #current_time < sunset_time < sunrise_time
     )
 
 import os

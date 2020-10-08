@@ -16,11 +16,12 @@ HEADERS = {
 def prettify(temperature, weather_condition: str, lat, lon: float) -> str:
     return (
         {
-            "Ясно"                    : chr(0x2600),
-            "Переменная облачность"   : chr(0x1F324),
-            "Облачно"                 : chr(0x1F325),
-            "Пасмурно"                : chr(0x2601),
-            "Пасмурно, снежная крупа" : chr(0x1F328),
+            "Ясно"                      : chr(0x2600),
+            "Переменная облачность"     : chr(0x1F324),
+            "Облачно"                   : chr(0x1F325),
+            "Пасмурно"                  : chr(0x2601),
+            "Пасмурно, небольшой дождь" : chr(0x1F327),
+            "Пасмурно, снежная крупа"   : chr(0x1F328),
 
             "New Moon"        : chr(0x1F311),
             "Waxing Crescent" : chr(0x1F312),
@@ -31,7 +32,7 @@ def prettify(temperature, weather_condition: str, lat, lon: float) -> str:
             "Last Quarter"    : chr(0x1F317),
             "Waning Crescent" : chr(0x1F318),
         }.get(
-            moon_phase() if 
+            moon_phase() if
                 sunset_check(lat, lon)
             else 
                 weather_condition,
@@ -39,7 +40,7 @@ def prettify(temperature, weather_condition: str, lat, lon: float) -> str:
         ) + ' '
           + weather_condition
           + ('' if weather_condition.endswith(', ') else ', ')
-          + temperature 
+          + temperature
           + chr(0x00B0)
     )
 
