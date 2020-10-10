@@ -21,20 +21,20 @@ bind-key U show-urls
 bind-key x pb-delete
 
 
-color background            default      color236
-color end-of-text-marker    color238     color236
-color listnormal            white        color236    dim
-color listfocus             yellow       color240    dim
-color listnormal_unread     blue         color236
-color listfocus_unread      yellow       color240    bold
-color info                  cyan         color239    
-color article               color254     color236
+color background            green       default
+color end-of-text-marker    color238    default
+color listnormal            white       default    dim
+color listfocus             yellow      default    dim
+color listnormal_unread     blue        default
+color listfocus_unread      yellow      default    bold
+color info                  cyan        color60    dim    
+color article               default     default
 
 
-highlight article  "^(Feed|Title|Author|Link|Date):" color254 color236 underline
-highlight article  "https?://[^ ]+"                  blue     color236
+highlight article  "^(Feed|Title|Author|Link|Date):" default default underline
+highlight article  "https?://[^ ]+"                  blue    default
 
-search-highlight-colors color254 yellow bold
+search-highlight-colors black green
 
 browser firefox
 macro v set browser "setsid -f mpv > /dev/null 2>&1" ; open-in-browser ; set browser "firefox"

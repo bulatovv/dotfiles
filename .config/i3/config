@@ -41,14 +41,14 @@ gaps outer $outer_gaps
 
 ### BAR
 bar {
-    i3bar_command i3bar -t
+    i3bar_command i3bar
         font pango:mono 10.5
 	    status_command i3blocks
     colors {
-        background $bgCC
-        focused_workspace $fg $bgCC $fg
-        inactive_workspace #808080 $bgCC #808080
-        urgent_workspace   $ur $urCC #000000
+        background $bg
+        focused_workspace $fg $bg $fg
+        inactive_workspace #808080 $bg #808080
+        urgent_workspace   $ur $ur #000000
     }
 }
 
