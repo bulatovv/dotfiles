@@ -18,7 +18,8 @@
     min_icon_size = 87
     max_icon_size = 87
 
-    format = "<b>%s</b>\n%b"
+    format = "<b>%a</b>\n%s\n<i>%b</i>"
+    show_indicators = "false"
 
 [urgency_low]
     background = "#282A36"

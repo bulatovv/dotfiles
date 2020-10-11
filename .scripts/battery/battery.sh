@@ -16,7 +16,8 @@ msgID="7070"
 [ $state = $(cat ~/.cache/battery/last_state) ] || (
     case $state in
         Full)
-            dunstify "Батарея полностью заряжена" \
+            dunstify "Полный заряд" \
+                      --appname="Батарея" \
                       --replace=$msgID \
                       --hints=string:frcolor:#50fa7b \
                       --hints=string:fgcolor:#50fa7b \
@@ -24,6 +25,7 @@ msgID="7070"
             ;;
         Charging)
             dunstify "Питание подключено" \
+                      --appname="Батарея" \
                       --replace=$msgID \
                       --hints=string:frcolor:#50fa7b \
                       --hints=string:fgcolor:#50fa7b \
@@ -31,12 +33,14 @@ msgID="7070"
             ;;
         Discharging)
             dunstify "Питание отключено" \
+                      --appname="Батарея" \
                       --replace=$msgID \
                       --urgency=LOW \
                       --icon=~/.icons/battery_low.png
             ;;
         Critical)
-            dunstify "Батарея почти разряжена" \
+            dunstify "Заряд на исходе" \
+                      --appname="Батарея" \
                       --replace=$msgID \
                       --urgency=CRITICAL \
                       --icon=~/.icons/battery_critical.png
