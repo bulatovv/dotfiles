@@ -11,27 +11,35 @@ echo $icon$perc%
 
 [ $perc -le 10 ] && [ $state = "Discharging" ] && state="Critical"
 
+
+msgID="7070"
 [ $state = $(cat ~/.cache/battery/last_state) ] || (
     case $state in
         Full)
-            notify-send "Батарея полностью заряжена" \
-                        --icon=~/.icons/battery_normal.png
+            dunstify "Батарея полностью заряжена" \
+                      --replace=$msgID \
+                      --hints=string:frcolor:#50fa7b \
+                      --hints=string:fgcolor:#50fa7b \
+                      --icon=~/.icons/battery_green.png
             ;;
         Charging)
-            notify-send "Питание подключено" \
-                        --hint=string:frcolor:#50fa7b \
-                        --hint=string:fgcolor:#50fa7b \
-                        --icon=~/.icons/battery_green.png
+            dunstify "Питание подключено" \
+                      --replace=$msgID \
+                      --hints=string:frcolor:#50fa7b \
+                      --hints=string:fgcolor:#50fa7b \
+                      --icon=~/.icons/battery_green.png
             ;;
         Discharging)
-            notify-send "Питание отключено" \
-                        --urgency=LOW \
-                        --icon=~/.icons/battery_low.png
+            dunstify "Питание отключено" \
+                      --replace=$msgID \
+                      --urgency=LOW \
+                      --icon=~/.icons/battery_low.png
             ;;
         Critical)
-            notify-send "Батарея почти разряжена" \
-                        --urgency=CRITICAL \
-                        --icon=~/.icons/battery_critical.png
+            dunstify "Батарея почти разряжена" \
+                      --replace=$msgID \
+                      --urgency=CRITICAL \
+                      --icon=~/.icons/battery_critical.png
     esac
     echo $state > ~/.cache/battery/last_state
 )
