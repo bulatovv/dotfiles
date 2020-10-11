@@ -3,11 +3,12 @@ command=~/.scripts/weather/weather.py
 interval=300
 
 [wired_status]
-command=~/.scripts/network/status.sh enp2s0f1
+command=~/.scripts/network/status.sh enp2s0f1 lan
+icon=~/.icon/lan
 interval=1
 
 [wifi_status]
-command=~/.scripts/network/status.sh wlp3s0
+command=~/.scripts/network/status.sh wlp3s0 wifi
 interval=1
 
 #[network_speed]
