@@ -169,8 +169,9 @@ bindsym $mod+r mode "resize"
 
 # Screenshots
 
-bindsym Print exec --no-startup-id maim ~/Pictures/screenshots/$(date +%s).png
-bindsym Shift+Print exec --no-startup-id maim -s ~/Pictures/screenshots/$(date +%s).png
+bindsym Print exec --no-startup-id maim ~/Pictures/screenshots/$(date +%s).png && notify-send --icon=~/.icons/screenshot_low.png --urgency=LOW "Снимок экрана сохранен" "в ~/Pictures/screenshots"
+bindsym Shift+Print exec --no-startup-id maim -s ~/Pictures/screenshots/$(date +%s).png && notify-send --icon=~/.icons/screenshot_low.png --urgency=LOW "Снимок экрана сохранен" "в ~/Pictures/screenshots"
+
 
 # Brightness
 bindsym F3 exec --no-startup-id sudo brightnessctl s 10-

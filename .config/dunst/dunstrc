@@ -7,7 +7,7 @@
     horizontal_padding = 10
     vertical_alignment = "center"
 
-    transparency = 10
+    transparency = 0
 
     separator_height = 2
     separator_color = frame
