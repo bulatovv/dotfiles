@@ -1,0 +1,35 @@
+[global]
+    font = Monospace 10.5
+    markup = "full"
+
+    geometry = "350x10-6-32"
+    notification_height = 102
+    horizontal_padding = 10
+    vertical_alignment = "center"
+
+    transparency = 10
+
+    separator_height = 2
+    separator_color = frame
+    frame_width = 2
+
+    icon_position = "left"
+    min_icon_size = 87
+    max_icon_size = 87
+
+    format = "<b>%s</b>\n%b"
+
+[urgency_low]
+    background = "#282A36"
+    foreground = "#4D4D4D""
+    frame_color = "#4D4D4D"
+
+[urgency_normal]
+    background = "#282A36"
+    foreground = "#BD93F9"
+    frame_color = "#BD93F9"
+
+[urgency_critical]
+    background = "#282A36"
+    foreground = "#FF5555"
+    frame_color = "#FF5555"

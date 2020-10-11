@@ -33,7 +33,7 @@ interval=repeat
 
 [time]
 command=date '+%H:%M'
-interval=30
+interval=1
 
 [datetime]
 command=date '+%d/%m/%Y'
