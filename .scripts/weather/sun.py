@@ -48,6 +48,8 @@ def sunset_check(latitude, longtitude: float) -> bool:
     #print(sunrise_time, current_time, sunset_time)
     return (
         sunrise_time < current_time < sunset_time
+            or
+        sunrise_time < sunset_time < current_time
     )
 
 import os
