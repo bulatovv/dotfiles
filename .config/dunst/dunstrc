@@ -5,6 +5,7 @@
     geometry = "350x10-6-32"
     notification_height = 102
     horizontal_padding = 10
+    padding = 10
     vertical_alignment = "center"
 
     transparency = 0

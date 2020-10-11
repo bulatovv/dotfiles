@@ -19,6 +19,7 @@ def prettify(temperature, weather_condition: str, lat, lon: float) -> str:
             "Ясно"                      : chr(0x2600),
             "Переменная облачность"     : chr(0x1F324),
             "Облачно"                   : chr(0x1F325),
+            "Малооблачно"               : chr(0x26C5),
             "Пасмурно"                  : chr(0x2601),
             "Пасмурно, небольшой дождь" : chr(0x1F327),
             "Пасмурно, снежная крупа"   : chr(0x1F328),
