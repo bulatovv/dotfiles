@@ -20,7 +20,7 @@ def sunrise_equation(latitude, longtitude: float) -> float:
       - datetime.datetime(2000, 1, 1, 12, 0)
     )
 
-    J = delta.days - longtitude / 360
+    J = 1 + delta.days - longtitude / 360
 
     M = (357.5291 + 0.98560028 * J) % 360
     
@@ -45,11 +45,11 @@ def sunrise_equation(latitude, longtitude: float) -> float:
 def sunset_check(latitude, longtitude: float) -> bool:
     sunrise_time, sunset_time = sunrise_equation(latitude, longtitude)
     current_time = datetime.datetime.now().timestamp() / 86400 + 2440587.5
-    #print(sunrise_time, current_time, sunset_time)  
+    #print(f"Sunrise: {sunrise_time}\nCurrent: {current_time}\nSunset:  {sunset_time}")  
     return (
-        sunrise_time < current_time < sunset_time
+        current_time < sunrise_time < sunset_time
             or
-        sunset_time < sunrise_time < current_time
+        False
     )
 
 import os
