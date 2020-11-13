@@ -11,6 +11,25 @@ ex() {
     esac
 }
 
-_hello () {
+_hello() {
     echo hello world
+}
+
+
+view() {
+    case $(file $1) in
+        *image\ data*)   setsid -f sxiv $1;;
+        *.mp4*)          setsid -f mpv $1;;
+        *.pdf*)          setsid -f zathura $1;;
+        *.doc*|*.ppt*)   setsid -f libreoffice $1;;
+        *ASCII*|*UTF-8*) cat $1;; 
+    esac
+}
+
+edit() {
+    case $(file $1) in
+        *image\ data*)   setsid -f gimp $1;;
+        *.doc*|*.ppt*)  setsid -f libreoffice $1;;
+        *ASCII*|*UTF-8*) vim $1;; 
+    esac
 }

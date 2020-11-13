@@ -34,7 +34,7 @@ color article               default     default
 highlight article  "^(Feed|Title|Author|Link|Date):" default default bold
 highlight article  "https?://[^ ]+"                  blue    default
 highlight feedlist ".*(0/0))" default default invis
-highlight feedlist "#.*" cyan default underline
+#highlight feedlist "#.*" cyan default underline
 
 search-highlight-colors black green
 

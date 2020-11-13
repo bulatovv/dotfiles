@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 import math
 
 def sin(degrees: float) -> float:
@@ -14,13 +14,17 @@ def acos(x: float) -> float:
     return math.acos(x) * 180 / math.pi
 
 
-def sunrise_equation(latitude, longtitude: float) -> float:
+def sunrise_equation(latitude, longtitude: float, now: datetime = None) -> float:
+    now = datetime.utcnow() if not now else now 
+
     delta = (
-        datetime.datetime.utcnow()
-      - datetime.datetime(2000, 1, 1, 12, 0)
+        now
+      - datetime(2000, 1, 1, 12, 0)
     )
 
-    J = 1 + delta.days - longtitude / 360
+    J = delta.days - longtitude / 360
+    
+    J = J + 1 if now.hour < 12 else J
 
     M = (357.5291 + 0.98560028 * J) % 360
     
@@ -44,10 +48,10 @@ def sunrise_equation(latitude, longtitude: float) -> float:
 
 def sunset_check(latitude, longtitude: float) -> bool:
     sunrise_time, sunset_time = sunrise_equation(latitude, longtitude)
-    current_time = datetime.datetime.now().timestamp() / 86400 + 2440587.5
+    current_time = datetime.now().timestamp() / 86400 + 2440587.5
     #print(f"Sunrise: {sunrise_time}\nCurrent: {current_time}\nSunset:  {sunset_time}")  
     return (
-        current_time < sunrise_time < sunset_time
+        sunrise_time < sunset_time < current_time
             or
         False
     )

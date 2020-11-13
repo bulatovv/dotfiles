@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'itchyny/lightline.vim'
+"Plug 'vim-airline/vim-airline'
 
 Plug 'ryanoasis/vim-devicons'
 
@@ -14,7 +15,7 @@ call plug#end()
 
 " Lang-specific
 autocmd BufWinEnter * if expand('%:e') == 'asm' | set ft=nasm | endif
-
+autocmd BufNewFile,BufRead,BufReadPost *.vs set syntax=javascript
 
 " Explorer
 autocmd VimEnter * CocCommand explorer --no-focus
@@ -47,7 +48,7 @@ au TermOpen * setlocal nonumber norelativenumber
 
 " Other stuff
 set nowrap
-set clipboard+=unnamedplus "use system clipboard
+set clipboard=unnamedplus "use system clipboard
 
 set splitbelow
 set splitright
