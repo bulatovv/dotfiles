@@ -1,17 +1,19 @@
 " Vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
-
 Plug 'itchyny/lightline.vim'
 "Plug 'vim-airline/vim-airline'
-
 Plug 'ryanoasis/vim-devicons'
-
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 Plug 'kiwec/vim-brainfuck'
+Plug 'vimwiki/vimwiki'
 call plug#end()
+
+" VimWiki
+let g:vimwiki_list = [{'path': '~/Notes/src',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_global_ext = 0
 
 " Lang-specific
 autocmd BufWinEnter * if expand('%:e') == 'asm' | set ft=nasm | endif

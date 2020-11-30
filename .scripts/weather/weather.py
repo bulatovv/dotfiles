@@ -20,6 +20,7 @@ def prettify(temperature, weather_condition: str, lat, lon: float) -> str:
             "Переменная облачность"       : chr(0x1F324),
             "Малооблачно"                 : chr(0x26C5),
             "Малооблачно, сильный ливень" : chr(0x1F326),
+            "Малооблачно, снег"           : chr(0x1F328),
             "Облачно"                     : chr(0x1F325),
             "Облачно, ливневый снег"      : chr(0x1F328),
             "Пасмурно"                    : chr(0x2601),
@@ -27,9 +28,11 @@ def prettify(temperature, weather_condition: str, lat, lon: float) -> str:
             "Пасмурно, небольшой дождь"   : chr(0x1F327),
             "Пасмурно, дождь"             : chr(0x1F327),
             "Пасмурно, ливневый снег"     : chr(0x1F328),
+            "Пасмурно, поземок"           : chr(0x2601),
             "Пасмурно, небольшой снег"    : chr(0x1F328),
             "Пасмурно, снег"              : chr(0x1F328),
             "Пасмурно, снежная крупа"     : chr(0x1F328),
+            "Пасмурно, снежные зёрна"     : chr(0x1F328),
 
             "New Moon"        : chr(0x1F311),
             "Waxing Crescent" : chr(0x1F312),
@@ -80,11 +83,11 @@ def main(lat, lon: float):
         )
     )
 
-(lambda __name__:
+(lambda name:
     main(
         *map(
             float, 
             os.environ.get('LOCATION').split() 
         )
-    ) if __name__ == '__main__' else None
+    ) if name == '__main__' else None
 )(__name__)
