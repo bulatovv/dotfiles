@@ -39,7 +39,7 @@ set_xresources() {
 set_nvim_theme() {
     ln -f ~/.config/nvim/$1.vim ~/.config/nvim/theme.vim
     for server in $(nvr --serverlist); do 
-        nvr --servername $server --remote-send "<Esc>:color $1<Return><C-l>"; 
+        nvr --servername $server --remote-send "<Esc>:color $1<Return><C-l>" & 
     done
 }
 
@@ -63,12 +63,12 @@ switch_to() {
     echo "$1" > $CPATH/current
     theme=$(cat $SPATH/themes.json | jq -c .themes.$1)
     if [ "$1" ] && [ "$theme" != null ]; then
-        set_nvim_theme $(cat $SPATH/themes.json | jq -cr .themes.$1.nvim)
         set_wallpaper $(cat $SPATH/themes.json | jq -cr .themes.$1.wallpaper) &
         set_alacritty_theme $(cat $SPATH/themes.json | jq -cr .themes.$1.alacritty) &
         set_gtk_theme $(cat $SPATH/themes.json | jq -cr .themes.$1.gtk) &
+        set_dunst_icons $(cat $SPATH/themes.json | jq -cr .themes.$1.dunst_icons) &
+        set_nvim_theme $(cat $SPATH/themes.json | jq -cr .themes.$1.nvim) &
         set_xresources $(cat $SPATH/themes.json | jq -cr .themes.$1.Xresources)
-        set_dunst_icons $(cat $SPATH/themes.json | jq -cr .themes.$1.dunst_icons)
         cat $SPATH/themes.json | jq -cr .on_switch[] | while read -r cmd; do
             $cmd
         done
