@@ -11,7 +11,7 @@ panic() {
 set_gtk_theme() {
     if [ -d "/usr/share/themes/$1" ] || [ -d "~/.themes/$1" ]; then
         echo "Net/ThemeName \"$1\"" > ~/.xsettingsd
-        timeout 0.5s xsettingsd > /dev/null &>2
+        timeout 0.5s xsettingsd
     else
         panic ${FUNCNAME[0]} "Cannot load gtk-theme $1 from /usr/share/themes or ~/.themes."
     fi
