@@ -20,18 +20,3 @@
 
     format = "<b>%a</b>\n%s\n<i>%b</i>"
     show_indicators = "false"
-
-[urgency_low]
-    background = "#282A36"
-    foreground = "#4D4D4D""
-    frame_color = "#4D4D4D"
-
-[urgency_normal]
-    background = "#282A36"
-    foreground = "#BD93F9"
-    frame_color = "#BD93F9"
-
-[urgency_critical]
-    background = "#282A36"
-    foreground = "#FF5555"
-    frame_color = "#FF5555"

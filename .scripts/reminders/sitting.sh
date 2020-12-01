@@ -1,5 +1,12 @@
 
 #!/bin/sh
 
+color=$(~/.scripts/colors/get.sh color4)
+bgcolor=$(~/.scripts/colors/get.sh background)
+
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
-dunstify --appname="Напоминание" --icon=~/.icons/sitting_normal.png "Прошел час" "Время оторваться от стула"
+dunstify --appname="Напоминание" \
+         --hints=string:frcolor:$color \
+         --hints=string:fgcolor:$color \
+         --hints=string:bgcolor:$bgcolor \
+         --icon=~/.icons/i/sitting_normal.png "Прошел час" "Время оторваться от стула"

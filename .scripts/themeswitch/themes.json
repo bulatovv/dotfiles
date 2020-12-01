@@ -1,0 +1,32 @@
+{
+    "themes": {
+
+        "Dracula" : {
+            "icon" : "D",
+            "Xresources" : ".DraculaXresources",
+            "wallpaper"  : "dracula.jpg",
+            "gtk" : "Dracula",
+            "nvim" : "dracula",
+            "alacritty" : "dracula.yml",
+            "dunst_icons" : "Dracula",
+            "actions" : [
+            ]
+        },
+
+        "Nord" : {
+            "icon" : "N",
+            "Xresources" : ".NordXresources",
+            "wallpaper"  : "nord.jpg",
+            "gtk" : "Nord",
+            "nvim" : "nord",
+            "alacritty" : "nord.yml",
+            "dunst_icons" : "Nord",
+            "actions" : [
+            ]
+        },
+
+        "Solarised" : {"gtk":"test"}
+    },
+    "on_switch" : ["i3-msg -q reload"],
+    "order": ["Nord", "Dracula"]
+}

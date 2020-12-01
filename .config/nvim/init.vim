@@ -1,8 +1,9 @@
 " Vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'itchyny/lightline.vim'
-"Plug 'vim-airline/vim-airline'
+Plug 'arcticicestudio/nord-vim'
+"Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -24,20 +25,23 @@ autocmd VimEnter * CocCommand explorer --no-focus
 autocmd TabEnter * CocCommand explorer --no-focus
 
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
-set autochdir
+set autochdir      
 
 " Keybindings
 
+autocmd VimEnter * AirlineToggleWhitespace | call feedkeys("\<C-l>")
+let g:airline_mode_map = {}
+let g:airline_mode_map['ic'] = 'INSERT'
 " Lightline
 set noshowmode
 set laststatus=2
-let g:lightline = {
-      \ 'colorscheme': 'dracula',
-      \ }
+"let g:lightline = {
+"      \ 'colorscheme': 'dracula',
+"      \ }
 
 " Colortheme
 set termguicolors
-color dracula
+source ~/.config/nvim/theme.vim
 
 " Indents
 set backspace=indent,eol,start

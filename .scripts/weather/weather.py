@@ -8,7 +8,7 @@ from moon import getMoonPhase as moon_phase
 from sun import sunset_check
 from bs4 import BeautifulSoup
 
-URL = "https://gismeteo.ru" 
+URL = "https://gismeteo.ru"
 HEADERS = {
     "User-Agent":"Mozilla/5.0 (Linux; Android 10; SM-G975U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.93 Mobile Safari/537.36"
 }
@@ -20,6 +20,7 @@ def prettify(temperature, weather_condition: str, lat, lon: float) -> str:
             "Переменная облачность"       : chr(0x1F324),
             "Малооблачно"                 : chr(0x26C5),
             "Малооблачно, сильный ливень" : chr(0x1F326),
+            "Малооблачно, ледяные иглы"   : chr(0x1F328),
             "Малооблачно, снег"           : chr(0x1F328),
             "Облачно"                     : chr(0x1F325),
             "Облачно, ливневый снег"      : chr(0x1F328),

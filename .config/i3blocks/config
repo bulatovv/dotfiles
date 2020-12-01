@@ -39,3 +39,7 @@ interval=1
 [datetime]
 command=date '+%d/%m/%Y'
 interval=60
+
+#[theme_switch]
+#command=~/.scripts/themeswitch/status.sh
+#interval=1
