@@ -174,8 +174,8 @@ bindsym $mod+r mode "resize"
 
 # Screenshots
 
-bindsym Print exec --no-startup-id maim ~/Pictures/screenshots/$(date +%s).png && dunstify --icon=~/.icons/screenshot_low.png --urgency=LOW --appname="Снимок экрана" "сохранен в ~/Pictures/screenshots"
-bindsym Shift+Print exec --no-startup-id maim -s ~/Pictures/screenshots/$(date +%s).png && dunstify --icon=~/.icons/screenshot_low.png --urgency=LOW --appname="Снимок экрана" "сохранен в ~/Pictures/screenshots"
+bindsym Print exec --no-startup-id ~/.scripts/screenshots/take.sh --full
+bindsym Shift+Print exec --no-startup-id ~/.scripts/screenshots/take.sh --select
 
 
 # Brightness
