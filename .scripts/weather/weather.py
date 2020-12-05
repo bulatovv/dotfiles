@@ -25,6 +25,7 @@ def prettify(temperature, weather_condition: str, lat, lon: float) -> str:
             "Облачно"                     : chr(0x1F325),
             "Облачно, ливневый снег"      : chr(0x1F328),
             "Пасмурно"                    : chr(0x2601),
+            "Пасмурно, туман"             : chr(0x1F32B),
             "Пасмурно, небольшая морось"  : chr(0x2601),
             "Пасмурно, небольшой дождь"   : chr(0x1F327),
             "Пасмурно, дождь"             : chr(0x1F327),
@@ -46,7 +47,7 @@ def prettify(temperature, weather_condition: str, lat, lon: float) -> str:
         }.get(
             moon_phase() if
                 sunset_check(lat, lon)
-            else 
+            else
                 weather_condition,
             ' '
         ) + ' '

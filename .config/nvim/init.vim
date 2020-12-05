@@ -2,6 +2,7 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
 "Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
@@ -31,7 +32,11 @@ set autochdir
 
 autocmd VimEnter * AirlineToggleWhitespace | call feedkeys("\<C-l>")
 let g:airline_mode_map = {}
+
 let g:airline_mode_map['ic'] = 'INSERT'
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 " Lightline
 set noshowmode
 set laststatus=2
