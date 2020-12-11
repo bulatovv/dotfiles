@@ -15,6 +15,7 @@ call plug#end()
 " VimWiki
 let g:vimwiki_list = [{'path': '~/Notes/src',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_ext2syntax = {}
 let g:vimwiki_global_ext = 0
 
 " Lang-specific
@@ -30,19 +31,21 @@ set autochdir
 
 " Keybindings
 
-autocmd VimEnter * AirlineToggleWhitespace | call feedkeys("\<C-l>")
 let g:airline_mode_map = {}
+
+
+" Airline
+set noshowmode
+set laststatus=2
+
+let g:airline_section_error = airline#section#create([])
+let g:airline_section_warning = airline#section#create([])
+let g:airline#extensions#coc#enabled = 0
 
 let g:airline_mode_map['ic'] = 'INSERT'
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-" Lightline
-set noshowmode
-set laststatus=2
-"let g:lightline = {
-"      \ 'colorscheme': 'dracula',
-"      \ }
 
 " Colortheme
 set termguicolors
