@@ -17,6 +17,7 @@ def prettify(temperature, weather_condition: str, lat, lon: float) -> str:
     return (
         {
             "Ясно"                        : chr(0x2600),
+            "Ясно, дымка"                 : chr(0x2600),
             "Переменная облачность"       : chr(0x1F324),
             "Малооблачно"                 : chr(0x26C5),
             "Малооблачно, сильный ливень" : chr(0x1F326),
@@ -72,7 +73,7 @@ def scrap(location: str) -> (str, str):
 def find_location(lat, lon: float) -> str:
    return json.loads(
       requests.get(
-         f"{URL}/api/v2/search/nearesttownsbycoords/?latitude={lat}&longitude={lon}&limit=1", 
+         f"{URL}/api/v2/search/nearesttownsbycoords/?latitude={lat}&longitude={lon}&limit=1",
          headers = HEADERS
       ).text
    )[0]['url']
@@ -88,8 +89,8 @@ def main(lat, lon: float):
 (lambda name:
     main(
         *map(
-            float, 
-            os.environ.get('LOCATION').split() 
+            float,
+            os.environ.get('LOCATION').split()
         )
     ) if name == '__main__' else None
 )(__name__)
