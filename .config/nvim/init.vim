@@ -49,7 +49,7 @@ let g:airline_right_sep = ''
 
 " Colortheme
 set termguicolors
-source ~/.config/nvim/theme.vim
+source ~/.config/nvim/nord.vim
 
 " Indents
 set backspace=indent,eol,start

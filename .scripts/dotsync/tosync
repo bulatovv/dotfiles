@@ -1,5 +1,4 @@
-/home/bulatov/.config/alacritty/nord.yml
-/home/bulatov/.config/alacritty/dracula.yml
+/home/bulatov/.config/alacritty/alacritty.yml
 /home/bulatov/.config/dunst/dunstrc
 /home/bulatov/.config/fontconfig
 /home/bulatov/.config/i3
@@ -9,16 +8,12 @@
 /home/bulatov/.config/ncmpcpp/config
 /home/bulatov/.config/newsboat/config
 /home/bulatov/.config/nvim/init.vim
-/home/bulatov/.config/nvim/dracula.vim
 /home/bulatov/.config/nvim/nord.vim
 /home/bulatov/.config/nvim/coc-settings.json
 /home/bulatov/.config/picom/picom.conf
-/home/bulatov/.config/dracula.jpg
-/home/bulatov/.config/nord.jpg
-/home/bulatov/.icons/Nord
-/home/bulatov/.icons/Dracula
+/home/bulatov/.config/wallpaper
+/home/bulatov/.icons/i
 /home/bulatov/.scripts
 /home/bulatov/.xinitrc
 /home/bulatov/.zshrc
-/home/bulatov/.DraculaXresources
-/home/bulatov/.NordXresources
+/home/bulatov/.Xresources
