@@ -1,6 +1,5 @@
 #!/bin/dash
 alias getcolor=~/.scripts/colors/get.sh
-alias mixcolor=~/.scripts/colors/mix.sh
 
 
 perc=$(cat /sys/class/power_supply/BAT1/capacity)
@@ -13,6 +12,16 @@ echo $icon$perc%
 
 [ $perc -le 10 ] && [ $state = "Discharging" ] && state="Critical"
 
+[ -z $icon ] && (
+    [ $perc -le 10 ] && echo $(getcolor color1) && exit 0
+    [ $perc -le 21 ] && echo $(mixcolor color1 color3) && exit 0
+    [ $perc -le 31 ] && echo $(getcolor color3) && exit 0
+    [ $perc -le 51 ] && echo $(getcolor color3)
+) || echo $(getcolor color2)
+
+[ -d ~/.cache/battery ] || mkdir -p ~/.cache/battery
+[ -e ~/.cache/battery/last_state ] || 
+    echo "Charging" > ~/.cache/battery/last_state
 
 msgID="7070"
 bgcolor=$(getcolor background)
@@ -63,9 +72,3 @@ bgcolor=$(getcolor background)
     esac
     echo $state > ~/.cache/battery/last_state
 )
-[ -z $icon ] && (
-    [ $perc -le 10 ] && echo $(getcolor color1) && exit 0
-    [ $perc -le 21 ] && echo $(mixcolor color1 color3) && exit 0
-    [ $perc -le 31 ] && echo $(getcolor color3) && exit 0
-    [ $perc -le 51 ] && echo $(getcolor color3)
-) || echo $(getcolor color2)
