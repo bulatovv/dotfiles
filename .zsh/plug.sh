@@ -20,6 +20,7 @@ plug_install() {
     echo -e "\033[0;32mInstalling plugins...\033[0m"
     while read -r line; do
         repo="${line##*/}"
+        [ -d "${SCRIPTPATH}/plug/${repo}" ] && continue
         ( git -C "${SCRIPTPATH}/plug" clone "$line" > /dev/null 2>>"${LOGS}/${repo}" ) &
         downloads[$!]="$repo"   
     done < "${SCRIPTPATH}/list"
@@ -62,8 +63,16 @@ plug_update() {
         echo -e "\033[0;32m${merged[$r]} updated!\033[0m"
     done
 
-    echo "${!fetched[@]}" 
-    echo "${!merged[@]}"
+}
+
+plug_clean() {
+    for plug in "${SCRIPTPATH}/plug/"*; do
+        repo="${plug##*/}"
+        if [ ! $(grep $repo "${SCRIPTPATH}/list")  ]; then
+            rm -rf $plug
+            echo -e "\033[0;31m${repo} was deleted\033[0m"
+        fi
+    done
 }
 
 case $1 in 
@@ -73,4 +82,6 @@ case $1 in
     update)
         plug_update
         ;;
+    clean)
+        plug_clean
 esac
