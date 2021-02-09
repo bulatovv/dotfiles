@@ -44,7 +44,7 @@ def convert_colors(ref, to, ignore, img):
                     ref,
                     to,
                     pix[x,y]
-            )
+                )
             else:
                 pix_out[x,y] = ignore
 
@@ -67,14 +67,11 @@ def convert_img(name, theme, colors):
 
     ignore = (0, 0, 0, 0)
     pixels = inspect(img, ignore)
-    print(pixels)
     ref = pixels.most_common(1)[0][0]
-    print(ref)
     for to in theme.palette:
         if to in colors:
             new = convert_colors(ref, theme.palette[to], ignore, img)
             if not os.path.exists(os.path.join(os.getcwd(), theme.name)):
-                print("here")
                 os.mkdir(f"{os.getcwd()}/{theme.name}")
             new.save(f"{theme.name}/"
                     + name.replace('.png','')
@@ -104,6 +101,14 @@ if __name__ == "__main__":
             green = "#50FA7B",
             yellow = "#F1FA8C"
         ),
+        Theme(
+            name = "Gruvbox",
+            low = "#928374",
+            normal = "#458588",
+            critical = "#cc241d",
+            green = "#98971a",
+            yellow = "#d79921"
+        )
     )
     images = {
         "battery.png" : {"critical", "green", "low"},

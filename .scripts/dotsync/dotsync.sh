@@ -15,7 +15,7 @@ confirm () {
     esac
 }
 
-clear () {
+clean () {
     for file in $DEST/.*; do
         [ $(echo $file | grep ".git\|README.md") ] || rm -rf $file 2>/dev/null
     done
@@ -38,7 +38,7 @@ push () {
 main () {
     if [ $(confirm) = yes ]; then
         echo -e "\033[31mSomething went wrong\033[0m" > /tmp/dotsync.log
-        clear 2>>/tmp/dotsync.log &&
+        clean 2>>/tmp/dotsync.log &&
         copy 2>>/tmp/dotsync.log  && 
         push "$1" 2>>/tmp/dotsync.log  || cat /tmp/dotsync.log
     else

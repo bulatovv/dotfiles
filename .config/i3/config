@@ -2,7 +2,7 @@
 
 ### COLORS
 font pango:monospace 8
-set_from_resource $fg i3wm.color4 #f0f0f0
+set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.background #f0f0f0
 set_from_resource $ur i3wm.color1 #f0f0f0
 set_from_resource $in i3wm.color10 #f0f0f0
@@ -49,7 +49,7 @@ bar {
         statusline $tx
         background $bg
         separator $gr
-        focused_workspace $fg $bg $fg
+        focused_workspace $in $bg $in
         inactive_workspace $gr $bg $gr
         urgent_workspace   $ur $bg $ur
     }

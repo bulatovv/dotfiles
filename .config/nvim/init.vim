@@ -1,7 +1,7 @@
 " Vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'arcticicestudio/nord-vim'
+"Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
 "Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
@@ -49,7 +49,7 @@ let g:airline_right_sep = ''
 
 " Colortheme
 set termguicolors
-source ~/.config/nvim/nord.vim
+color gruvbox
 
 " Indents
 set backspace=indent,eol,start
