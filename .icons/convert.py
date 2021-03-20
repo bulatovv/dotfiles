@@ -52,30 +52,33 @@ def convert_colors(ref, to, ignore, img):
 
 def palette(**kwargs):
     for color in kwargs:
-        kwargs[color] = to_triplet(kwargs[color])
+        kwargs[color] = to_triplet(kwargs[color]) + (255,)
     return kwargs
 
 def to_triplet(hx: str) -> (int, int, int):
     h1 = hx[1:3] #123456
     h2 = hx[3:5]
     h3 = hx[5:7]
-    return (int(h1,16), int(h2,16), int(h3,16), 255)
+    return (int(h1,16), int(h2,16), int(h3,16))
 
 def convert_img(name, theme, colors):
 
     img = Image.open(f"Reference/{name}").convert("RGBA")
-
+    print(f"\t{name}:", end="\033[1m ")
     ignore = (0, 0, 0, 0)
     pixels = inspect(img, ignore)
     ref = pixels.most_common(1)[0][0]
-    for to in theme.palette:
-        if to in colors:
+    for to in colors:
+        if to in theme.palette:
+            termcolor = "\033[38;2;{};{};{}m".format( *theme.palette[to] )
+            print(termcolor, to, sep = '', end = " ")
             new = convert_colors(ref, theme.palette[to], ignore, img)
             if not os.path.exists(os.path.join(os.getcwd(), theme.name)):
                 os.mkdir(f"{os.getcwd()}/{theme.name}")
             new.save(f"{theme.name}/"
                     + name.replace('.png','')
                     + f'_{to}.png')
+    print("\033[0;m")
 
 class Theme:
     def __init__(self, name, **colors):
@@ -117,9 +120,11 @@ if __name__ == "__main__":
         "music_note.png" : {"low", "normal"},
         "screenshot.png" : {"low", "normal"},
         "sitting.png" : {"low", "normal"},
-        "wifi.png" : {"critical", "green", "yellow", "low"}
+        "wifi.png" : {"critical", "green", "yellow", "low"},
+        "brightness.png" : {"low"}
     }
 
     for theme in themes:
+        print(f"\033[1mConverting to {theme.name} theme:\033[0m")
         for image in images:
             convert_img(image, theme, images[image])

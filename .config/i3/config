@@ -173,11 +173,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Screenshots
-
 bindsym Print exec --no-startup-id ~/.scripts/screenshots/take.sh --full
 bindsym Shift+Print exec --no-startup-id ~/.scripts/screenshots/take.sh --select
 
 
 # Brightness
-bindsym F3 exec --no-startup-id sudo brightnessctl s 10-
-bindsym F4 exec --no-startup-id sudo brightnessctl s +10
+bindsym F3 exec --no-startup-id ~/.scripts/brightness/change.sh down
+bindsym F4 exec --no-startup-id ~/.scripts/brightness/change.sh up
