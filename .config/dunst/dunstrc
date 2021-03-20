@@ -21,19 +21,19 @@
     format = "<b>%a</b>\n%s\n<i>%b</i>"
     show_indicators = "false"
 
-    background = "#2E3440"
+    background = "#282828"
 
 [urgency_low]
-    background = "#2E3440"
-    foreground = "#434C5E"
-    frame_color = "#434C5E"
+    background = "#282828"
+    foreground = "#928374"
+    frame_color = "#928374"
 
 [urgency_normal]
-    background = "#2E3440"
-    foreground = "#81A1C1"
-    frame_color = "#81A1C1"
+    background = "#282828"
+    foreground = "#458588"
+    frame_color = "#458588"
 
 [urgency_critical]
-    background = "#2E3440"
-    foreground = "#81A1C1"
-    frame_color = "#81A1C1"
+    background = "#282828"
+    foreground = "#cc241d"
+    frame_color = "#cc241d"
