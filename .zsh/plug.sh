@@ -8,33 +8,6 @@ LOGS="${SCRIPTPATH}/logs"
 [ -d "${SCRIPTPATH}/plug" ] || mkdir "${SCRIPTPATH}/plug"
 [ -d "$LOGS" ] || mkdir "$LOGS"
 
-__plug_install() {
-    cat "${SCRIPTPATH}/list" | while read -r line; do
-        echo -e "\033[0;32mInstalling ${line}\033[0m"
-        git -C "${SCRIPTPATH}/plug" clone "${line}" > /dev/null 2>>"${LOGS}/${repo}"
-    done
-}
-
-plug_install() {
-    declare -A downloads
-    echo -e "\033[0;32mInstalling plugins...\033[0m"
-    while read -r line; do
-        repo="${line##*/}"
-        [ -d "${SCRIPTPATH}/plug/${repo}" ] && continue
-        ( git -C "${SCRIPTPATH}/plug" clone "$line" > /dev/null 2>>"${LOGS}/${repo}" ) &
-        downloads[$!]="$repo"   
-    done < "${SCRIPTPATH}/list"
-    
-    for d in "${!downloads[@]}"; do
-        code=0
-        wait "$d" || code=$?
-        if [ "$code" != "0" ]; then
-            echo -e "\033[0;31mError[$code] occurred when cloned ${downloads[$d]}\033[0m"
-        else
-            echo -e "\033[0;32m${downloads[$d]} installed!\033[0m"
-        fi
-    done
-}
 
 plug_update() { 
     declare -A downloads
@@ -71,7 +44,14 @@ plug_update() {
     done < "${SCRIPTPATH}/list"
     
     for r in "${!fetched[@]}"; do
-        wait "$r"
+        
+        code=0
+        wait "$r" || code=$?
+        if [ "$code" != "0" ]; then
+            echo -e "\033[0;31mError[$code] occurred when fetched ${fetched[$r]}\033[0m"
+            continue
+        fi
+
         if [ $(git -C "${SCRIPTPATH}/plug/${fetched[$r]}" rev-parse HEAD) != \
              $(git -C "${SCRIPTPATH}/plug/${fetched[$r]}" rev-parse @{u})    \
         ]; then
@@ -83,8 +63,13 @@ plug_update() {
     done
 
     for r in "${!merged[@]}"; do
-        wait "$r"
-        echo -e "\033[0;32m${merged[$r]}: updated!\033[0m"
+        code=0
+        wait "$r" || code=$?
+        if [ "$code" != "0" ]; then
+            echo -e "\033[0;31mError[$code] occurred when merged ${merged[$r]}\033[0m"
+        else
+            echo -e "\033[0;32m${merged[$r]}: updated!\033[0m"
+        fi
     done
 
     plug_clean
@@ -101,13 +86,4 @@ plug_clean() {
     done
 }
 
-case $1 in 
-    install)
-        plug_install
-        ;;
-    update)
-        plug_update
-        ;;
-    clean)
-        plug_clean
-esac
+plug_update

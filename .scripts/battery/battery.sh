@@ -14,9 +14,9 @@ echo $icon$perc%
 
 [ -z $icon ] && (
     [ $perc -le 10 ] && echo $(getcolor color1) && exit 0
-    [ $perc -le 21 ] && echo $(mixcolor color1 color3) && exit 0
+    [ $perc -le 21 ] && echo $(getcolor color9) && exit 0
     [ $perc -le 31 ] && echo $(getcolor color3) && exit 0
-    [ $perc -le 51 ] && echo $(getcolor color3)
+    [ $perc -le 51 ] && echo $(getcolor color11)
 ) || echo $(getcolor color2)
 
 [ -d ~/.cache/battery ] || mkdir -p ~/.cache/battery
