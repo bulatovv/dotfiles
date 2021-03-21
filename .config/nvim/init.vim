@@ -1,14 +1,12 @@
 " Vim-plug
 call plug#begin('~/.config/nvim/plugged')
-Plug 'dracula/vim', { 'as': 'dracula' }
-"Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
-"Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'wlangstroth/vim-racket'
 Plug 'kiwec/vim-brainfuck'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vimwiki/vimwiki'
 call plug#end()
 
@@ -20,28 +18,23 @@ let g:vimwiki_global_ext = 0
 
 " Lang-specific
 autocmd BufWinEnter * if expand('%:e') == 'asm' | set ft=nasm | endif
-autocmd BufNewFile,BufRead,BufReadPost *.vs set syntax=javascript
 
 " Explorer
 autocmd VimEnter * CocCommand explorer --no-focus
 autocmd TabEnter * CocCommand explorer --no-focus
-
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 set autochdir      
 
-" Keybindings
 
-let g:airline_mode_map = {}
 
 
 " Airline
 set noshowmode
 set laststatus=2
-
+let g:airline_mode_map = {}
 let g:airline_section_error = airline#section#create([])
 let g:airline_section_warning = airline#section#create([])
 let g:airline#extensions#coc#enabled = 0
-
 let g:airline_mode_map['ic'] = 'INSERT'
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
