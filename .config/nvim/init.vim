@@ -8,7 +8,16 @@ Plug 'wlangstroth/vim-racket'
 Plug 'kiwec/vim-brainfuck'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vimwiki/vimwiki'
+Plug 'junegunn/goyo.vim'
 call plug#end()
+
+" Commands
+command Nicecsv :call Nicecsv()
+function! Nicecsv()
+    let save_pos = getpos(".")
+    %!column -s, -o, -t
+    call setpos('.', save_pos)
+endfunction
 
 " VimWiki
 let g:vimwiki_list = [{'path': '~/Notes/src',
