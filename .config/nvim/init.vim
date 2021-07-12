@@ -4,11 +4,11 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 "Plug 'sheerun/vim-polyglot'
-Plug 'wlangstroth/vim-racket'
-Plug 'kiwec/vim-brainfuck'
+"Plug 'wlangstroth/vim-racket'
+"Plug 'kiwec/vim-brainfuck'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vimwiki/vimwiki'
-Plug 'mechatroner/rainbow_csv'
+"Plug 'mechatroner/rainbow_csv'
 call plug#end()
 
 " Commands
