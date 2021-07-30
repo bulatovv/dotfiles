@@ -21,7 +21,7 @@ clean () {
     done
 }
 
-copy () {
+copy () { # TODO: change to rsync 
     cat ~/.scripts/dotsync/tosync | while read -r line ; do
         mkdir -p $(dirname $line | sed s!$FROM!$DEST!g)
         cp -r $line $(echo $line | sed s!$FROM!$DEST!g)
@@ -35,9 +35,8 @@ push () {
     git -C $DEST push -u origin master
 }
 
-main () {
+full () {
     if [ $(confirm) = yes ]; then
-        echo -e "\033[31mSomething went wrong\033[0m" > /tmp/dotsync.log
         clean 2>>/tmp/dotsync.log &&
         copy 2>>/tmp/dotsync.log  && 
         push "$1" 2>>/tmp/dotsync.log  || cat /tmp/dotsync.log
@@ -46,4 +45,25 @@ main () {
     fi
 }
 
-main "$1"
+
+echo -e "\033[31mSomething went wrong\033[0m" > /tmp/dotsync.log
+case $1 in
+    copy)
+        clean 2>>/tmp/dotsync.log &&
+        copy 2>>/tmp/dotsync.log  || cat /tmp/dotsync.log
+        ;;
+    status)
+        git -C $DEST status -s
+        ;;
+    include)
+        shift
+        git -C $DEST add $@
+        ;;
+    exclude)
+        shift
+        git -C $DEST restore --staged $@
+        ;;
+    push)
+        push "$1" 2>>/tmp/dotsync.log  || cat /tmp/dotsync.log
+        ;;
+esac
