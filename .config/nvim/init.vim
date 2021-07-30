@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
+Plug 'vim-jp/vim-cpp'
 "Plug 'sheerun/vim-polyglot'
 "Plug 'wlangstroth/vim-racket'
 "Plug 'kiwec/vim-brainfuck'

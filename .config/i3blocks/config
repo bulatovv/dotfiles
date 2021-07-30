@@ -23,7 +23,7 @@ interval=1
 signal=5
 
 [battery]
-command=sleep 0.5;~/.scripts/battery/battery.sh
+command=sleep 0.5;~/.scripts/battery/status
 interval=repeat
 align=center
 min_width=44
