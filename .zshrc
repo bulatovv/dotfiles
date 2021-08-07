@@ -26,7 +26,7 @@ alias ovim='/bin/vim'
 alias vim=nvim
 alias rmswap="rm ~/.local/share/nvim/swap/*"
 
-alias sync-configs=~/.scripts/dotsync/dotsync.sh
+alias dotsync=~/.scripts/dotsync/dotsync.sh
 alias i3-config="vim ~/.config/i3/config"
 alias i3b-config="vim ~/.config/i3blocks/config"
 alias newsboat-config="vim ~/.config/newsboat/config"
