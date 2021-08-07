@@ -1,5 +1,0 @@
-set previewer ~/.config/lf/preview
-set icons true
-set hidden true
-
-set promptfmt "\033[34m%u\033[36m@%h\033[37m %w\033[0m"
