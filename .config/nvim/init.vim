@@ -24,7 +24,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         virtual_text = false,
     }
 )
-local servers = {'pylsp'}
+local servers = {'pylsp', 'clangd'}
 for _, lsp in ipairs(servers) do
     require'lspconfig'[lsp].setup {
         on_attach = require'completion'.on_attach,
@@ -110,5 +110,5 @@ set splitright
 set nu
 set wildmenu
 
-" Text files
+" Spellcheck
 "autocmd BufRead,BufNewFile *.txt,*.md set spell

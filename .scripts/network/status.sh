@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-alias getcolor=~/.scripts/colors/get.sh
+source ~/.scripts/colors/get.sh
 
 device=$1
 type=$2
