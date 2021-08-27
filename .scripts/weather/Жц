@@ -55,7 +55,9 @@ def prettify(temperature, weather_condition: str, lat, lon: float) -> str:
             "Last Quarter"    : chr(0x1F317),
             "Waning Crescent" : chr(0x1F318),
         }.get(
-            moon_phase() if sunset_check(lat, lon) else weather_condition,
+            moon_phase() 
+            if sunset_check(lat, lon)
+            else weather_condition,
             ' '
         ) + ' '
           + weather_condition
