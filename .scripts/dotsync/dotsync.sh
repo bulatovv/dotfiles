@@ -47,6 +47,7 @@ Usage:
         Copy all files from tosync-list and push them to remote repo
 EOF
 
+
 echo -e "\033[31mSomething went wrong\033[0m" > /tmp/dotsync.log
 case $1 in
     *copy)
@@ -70,9 +71,9 @@ case $1 in
     *full)
         git -C $DEST status -s
         if [ $(confirm "Start full syncing?") ]; then
-            git -C $DEST add -A
             clean 2>>/tmp/dotsync.log &&
             copy 2>>/tmp/dotsync.log  && 
+            git -C $DEST add -A &&
             push "$2" 2>>/tmp/dotsync.log  || cat /tmp/dotsync.log
         else
             echo -e "\033[31mAborted\033[0m"
