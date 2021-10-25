@@ -1,16 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
 FROM=~
 DEST=~/.cache/dotfiles
 
 confirm () {
-    read -r -p "$1 [y/N]" response
+    read -r -p "$1 [y/N] " response
     case "$response" in
     [yY][eE][sS]|[yY]) 
-        echo yes
-        ;;
-    *)
-        echo no
+        echo 1
         ;;
     esac
 }
@@ -34,29 +31,45 @@ push () {
 }
 
 
+read -r -d '' USAGE << EOF
+Usage:
+    --copy
+        Copy all files from tosync-list to local git repo
+    --status
+        Check git status on local repo
+    --include
+        Add files to local repo index
+    --exclude
+        Remove files from local repo index
+    --push "comment"
+        Push changes to remote repo
+    --full "comment"
+        Copy all files from tosync-list and push them to remote repo
+EOF
+
 echo -e "\033[31mSomething went wrong\033[0m" > /tmp/dotsync.log
 case $1 in
-    copy)
+    *copy)
         clean 2>>/tmp/dotsync.log &&
         copy 2>>/tmp/dotsync.log  || cat /tmp/dotsync.log
         ;;
-    status)
+    *status)
         git -C $DEST status -s
         ;;
-    include)
+    *include)
         shift
         git -C $DEST add $@
         ;;
-    exclude)
+    *exclude)
         shift
         git -C $DEST restore --staged $@
         ;;
-    push)
+    *push)
         push "$2" 2>>/tmp/dotsync.log  || cat /tmp/dotsync.log
         ;;
-    full)
+    *full)
         git -C $DEST status -s
-        if [ $(confirm "Start full syncing?") = yes ]; then
+        if [ $(confirm "Start full syncing?") ]; then
             git -C $DEST add -A
             clean 2>>/tmp/dotsync.log &&
             copy 2>>/tmp/dotsync.log  && 
@@ -64,5 +77,8 @@ case $1 in
         else
             echo -e "\033[31mAborted\033[0m"
         fi
+        ;;
+    *|help)
+        echo "$USAGE"
         ;;
 esac
