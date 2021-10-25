@@ -10,9 +10,13 @@ from bs4 import BeautifulSoup
 
 URL = "https://gismeteo.ru"
 HEADERS = {
-    "User-Agent":
-    "Mozilla/5.0 (Linux; Android 10; SM-G975U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.93 Mobile Safari/537.36"
+    "User-Agent": (
+        "Mozilla/5.0 (Linux; Android 10; SM-G975U)"
+        "AppleWebKit/537.36 (KHTML, like Gecko)"
+        "Chrome/79.0.3945.93 Mobile Safari/537.36"
+    )
 }
+
 
 def prettify(temperature, weather_condition: str, lat, lon: float) -> str:
     return (
@@ -60,43 +64,49 @@ def prettify(temperature, weather_condition: str, lat, lon: float) -> str:
         ) + ' '
           + weather_condition
           + ('' if weather_condition.endswith(', ') else ', ')
-          + temperature
+          + temperature.strip()
           + chr(0x00B0)
     )
 
+
 def scrap(location: str) -> (str, str):
-   return (tag.text for tag in BeautifulSoup(
-         requests.get(f'{URL}{location}/now', headers = HEADERS).text,
-         "html.parser"
-      ).find_all(
-         lambda tag: (
-            tag.parent.attrs.get("class") == ["now__feel"] or
-            tag.attrs.get("class") == ["now__desc"]
-         )
-      )
-   )
+    return (
+        tag.text for tag in BeautifulSoup(
+            requests.get(f'{URL}{location}/now', headers=HEADERS).text,
+            "html.parser"
+        ).find_all(
+            lambda tag: (
+                "now-feel" in tag.parent.get("class", []) and
+                "unit_temperature_c" in tag.get("class", []) or
+                "now-desc" in tag.get("class", [])
+            )
+        )
+    )
+
 
 def find_location(lat, lon: float) -> str:
     return json.loads(
         requests.get(
-            f"{URL}/api/v2/search/nearesttownsbycoords/?latitude={lat}&longitude={lon}&limit=1",
+            f"{URL}/api/v2/search/nearesttownsbycoords/"
+            f"?latitude={lat}&longitude={lon}&limit=1",
             headers=HEADERS
         ).text
     )[0]['url']
 
+
 def main(lat, lon: float):
     print(
         prettify(
-            *scrap( find_location(lat, lon) ),
+            *scrap(find_location(lat, lon)),
             lat, lon
         )
     )
 
-(lambda name:
+
+if __name__ == "__main__":
     main(
         *map(
             float,
             os.environ.get('LOCATION').split()
         )
-    ) if name == '__main__' else None
-)(__name__)
+    )
