@@ -91,7 +91,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
-" Indents
+" Indent
 set backspace=indent,eol,start
 set tabstop=4 shiftwidth=4 expandtab
 filetype plugin indent on
