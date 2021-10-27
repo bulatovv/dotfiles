@@ -1,22 +1,12 @@
 #!/usr/bin/env bash
 
-SCRIPT=$(realpath -s $0)
-SCRIPTPATH=$(dirname $SCRIPT)
-LOGS="${SCRIPTPATH}/logs"
-
-[ -e "${SCRIPTPATH}/list" ] || exit
-[ -d "${SCRIPTPATH}/plug" ] || mkdir "${SCRIPTPATH}/plug"
-[ -d "$LOGS" ] || mkdir "$LOGS"
+readonly SCRIPT=$(realpath -s $0)
+readonly SCRIPTPATH=$(dirname $SCRIPT)
+readonly LOGS="${SCRIPTPATH}/logs"
 
 
-plug_update() { 
-    declare -A downloads
-    declare -A fetched
-    declare -A merged
-    
-    echo -e "\033[0;32mUpdating plugins...\033[0m"
-    
-    while read -r line; do # install plugins
+plug_install() {
+    while read -r line; do
         repo="${line##*/}"
         [ -d "${SCRIPTPATH}/plug/${repo}" ] && continue
         ( git -C "${SCRIPTPATH}/plug" clone "$line" > /dev/null 2>>"${LOGS}/${repo}" ) &
@@ -27,14 +17,17 @@ plug_update() {
         code=0
         wait "$d" || code=$?
         if [ "$code" != "0" ]; then
-            echo -e "${downloads[$d]}: \033[0;31mError[$code] occurred when cloned\033[0m"
+            echo -e "\033[0;31mError[$code] occurred when cloned ${downloads[$d]} \033[0m"
         else
             echo -e "\033[0;32m${downloads[$d]}: installed!\033[0m"
         fi
     done
-    
 
-    while read -r line; do # update plugins
+}
+
+
+plug_update() {
+    while read -r line; do
         repo="${line##*/}"
         case "${downloads[@]}" in
             *$repo*) continue;;
@@ -43,8 +36,7 @@ plug_update() {
         fetched[$!]="$repo"   
     done < "${SCRIPTPATH}/list"
     
-    for r in "${!fetched[@]}"; do
-        
+    for r in "${!fetched[@]}"; do 
         code=0
         wait "$r" || code=$?
         if [ "$code" != "0" ]; then
@@ -54,27 +46,16 @@ plug_update() {
 
         if [ $(git -C "${SCRIPTPATH}/plug/${fetched[$r]}" rev-parse HEAD) != \
              $(git -C "${SCRIPTPATH}/plug/${fetched[$r]}" rev-parse @{u})    \
-        ]; then
-            (git -C "${SCRIPTPATH}/plug/${fetched[$r]}" merge origin/master > /dev/null 2>>"${LOGS}/${repo}" ) &
-            merged[$!]="${fetched[$r]}"
+        ]; then 
+            (git -C "${SCRIPTPATH}/plug/${fetched[$r]}" merge origin/master > /dev/null 2>>"${LOGS}/${repo}" ) \
+                && echo -e "\033[0;32m${fetched[$r]}: updated!\033[0m"                                         \
+                || echo -e "\033[0;31mError[$code] occurred when merged ${fetched[$r]}\033[0m" 
         else
             echo -e "\033[0;33m${fetched[$r]}: already up to date!\033[0m"
         fi
     done
-
-    for r in "${!merged[@]}"; do
-        code=0
-        wait "$r" || code=$?
-        if [ "$code" != "0" ]; then
-            echo -e "\033[0;31mError[$code] occurred when merged ${merged[$r]}\033[0m"
-        else
-            echo -e "\033[0;32m${merged[$r]}: updated!\033[0m"
-        fi
-    done
-
-    plug_clean
-
 }
+
 
 plug_clean() {
     for plug in "${SCRIPTPATH}/plug/"*; do
@@ -86,4 +67,18 @@ plug_clean() {
     done
 }
 
-plug_update
+
+main() {
+    [ -e "${SCRIPTPATH}/list" ] || exit
+    [ -d "${SCRIPTPATH}/plug" ] || mkdir "${SCRIPTPATH}/plug"
+    [ -d "$LOGS" ] || mkdir "$LOGS"
+    
+    declare -gA downloads
+    declare -gA fetched
+
+    echo -e "\033[0;32mUpdating plugins...\033[0m"
+    plug_install; plug_update; plug_clean
+}
+
+
+main "$@"
