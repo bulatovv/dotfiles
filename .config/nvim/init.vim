@@ -69,5 +69,8 @@ set splitright
 set nu
 set wildmenu
 
+autocmd BufNewFile,BufRead *.h set filetype=c
+autocmd BufNewFile,BufRead *.inc set filetype=c
+
 " Spellcheck
 "autocmd BufRead,BufNewFile *.txt,*.md set spell

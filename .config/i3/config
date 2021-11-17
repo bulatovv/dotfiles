@@ -117,7 +117,6 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-bindsym $mod+T exec ~/.scripts/themeswitch/switch.sh
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
