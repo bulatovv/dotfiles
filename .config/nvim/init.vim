@@ -6,17 +6,17 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
-Plug 'gruvbox-community/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 " Colortheme
 set termguicolors
-color gruvbox
+color nord
 
 " LSP
 
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
-
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable = false})
+autocmd BufEnter * lua vim.lsp.diagnostic.clear(0)
 lua require('lsp')
 
 set completeopt=menuone,noinsert,noselect
