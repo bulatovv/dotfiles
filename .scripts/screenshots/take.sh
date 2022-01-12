@@ -1,5 +1,7 @@
 #!/bin/sh
 
+source ~/.scripts/colors/get.sh
+
 screenshots_path=~/Pictures/screenshots
 name=$(date +%s).png
 case $1 in
@@ -11,11 +13,7 @@ case $1 in
 esac
 (cat $screenshots_path/$name | xclip -selection clipboard -t image/png -i) &
 
-color=$(~/.scripts/colors/get.sh color4)
-bgcolor=$(~/.scripts/colors/get.sh background)
 
 dunstify --appname="Снимок экрана" "Сохранен в ~/Pictures/screenshots" \
           --icon=~/.icons/i/screenshot_normal.png \
-          --hints=string:frcolor:$color \
-          --hints=string:fgcolor:$color \
-          --hints=string:bgcolor:$bgcolor
+          --urgency=NORMAL

@@ -14,11 +14,9 @@ set termguicolors
 color nord
 
 " LSP
-
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable = false})
-autocmd BufEnter * lua vim.lsp.diagnostic.clear(0)
 lua require('lsp')
 
+autocmd CursorHold * lua vim.diagnostic.open_float()
 set completeopt=menuone,noinsert,noselect
 set signcolumn=yes:1
 set updatetime=500
@@ -35,9 +33,6 @@ let g:vimwiki_global_ext = 0
 " autocmd TabEnter * CocCommand explorer --no-focus
 " autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 set autochdir      
-
-
-
 
 " Airline
 set noshowmode
@@ -69,6 +64,7 @@ set splitright
 set nu
 set wildmenu
 
+" Filetypes
 autocmd BufNewFile,BufRead *.h set filetype=c
 autocmd BufNewFile,BufRead *.inc set filetype=c
 
