@@ -14,7 +14,7 @@ end
 require "lspconfig".efm.setup {
     on_attach = on_attach,
     cmd = {'efm-langserver', '-logfile', '/tmp/efm.log', '-loglevel', '5'},
-    filetypes = { 'python' },
+    filetypes = { 'python', 'sh'},
     init_options = {
         documentFormatting = true, 
         --hover = true, 
@@ -35,6 +35,15 @@ require "lspconfig".efm.setup {
                     lintStdin =  true,
                     lintFormats = {'%f:%l:%c: %m'}
                 }]]--,
+            },
+            sh = {
+                {
+                    lintCommand = "shellcheck -f gcc -x",
+                    lintSource = "shellcheck",
+                    lintFormats = {"%f:%l:%c: %trror: %m",
+                                   "%f:%l:%c: %tarning: %m",
+                                   "%f:%l:%c: %trror: %m"}
+                }
             },
         }
     }
