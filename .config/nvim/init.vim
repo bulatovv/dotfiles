@@ -2,7 +2,7 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neovim/nvim-lspconfig'
 Plug 'mattn/efm-langserver'
-Plug 'nvim-lua/completion-nvim'
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
@@ -20,6 +20,9 @@ autocmd CursorHold * lua vim.diagnostic.open_float()
 set completeopt=menuone,noinsert,noselect
 set signcolumn=yes:1
 set updatetime=500
+
+let g:coq_settings = { 'auto_start': 'shut-up' }
+autocmd VimEnter * COQnow
 
 
 " VimWiki

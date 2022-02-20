@@ -1,17 +1,21 @@
+local lspconfig = require "lspconfig"
+local coq = require "coq"
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
         virtual_text = false,
     }
 )
 
-local servers = {'pylsp', 'clangd'}
+local servers = {'pylsp', 'clangd', 'html', 'cssls'}
 for _, lsp in ipairs(servers) do
-    require'lspconfig'[lsp].setup {
-        on_attach = require'completion'.on_attach,
+    lspconfig[lsp].setup {
+        on_attach = on_attach,
     }
+    lspconfig[lsp].setup(coq.lsp_ensure_capabilities())
 end
 
-require "lspconfig".efm.setup {
+lspconfig.efm.setup {
     on_attach = on_attach,
     cmd = {'efm-langserver', '-logfile', '/tmp/efm.log', '-loglevel', '5'},
     filetypes = { 'python', 'sh'},
@@ -42,7 +46,7 @@ require "lspconfig".efm.setup {
                     lintSource = "shellcheck",
                     lintFormats = {"%f:%l:%c: %trror: %m",
                                    "%f:%l:%c: %tarning: %m",
-                                   "%f:%l:%c: %trror: %m"}
+                                   "%f:%l:%c: %tote: %m"}
                 }
             },
         }
