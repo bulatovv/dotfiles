@@ -7,7 +7,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     }
 )
 
-local servers = {'pylsp', 'clangd', 'html', 'cssls'}
+local servers = {'pylsp', 'clangd', 'html', 'cssls', 'phpactor'}
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         on_attach = on_attach,
@@ -29,11 +29,11 @@ lspconfig.efm.setup {
     settings = {
         languages = {
             python = {
-                --[[{
+                {
                     lintCommand = "pylint --output-format text --score no --msg-template {path}:{line}:{column}:{C}:{msg} ${INPUT}",
                     lintStdin = true,
                     lintFormats = {'%f:%l:%c:%t:%m'},
-                }]]--
+                }
                 --[[{
                     lintCommand =  'flake8 ${INPUT} -',
                     lintStdin =  true,
