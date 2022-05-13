@@ -4,9 +4,12 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'mattn/efm-langserver'
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 Plug 'ms-jpq/coq.artifacts'
+Plug 'ms-jpq/chadtree'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
+Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'jwalton512/vim-blade'
 call plug#end()

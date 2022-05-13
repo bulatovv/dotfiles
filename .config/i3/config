@@ -38,7 +38,8 @@ set $ws10 "10 "
 ### GAPS
 for_window [class="^.*"] border pixel 2
 gaps inner $inner_gaps
-gaps left 100
+gaps left 300
+gaps top 10
 #gaps outer $outer_gaps
 
 ### BAR
