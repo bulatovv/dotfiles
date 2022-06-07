@@ -12,6 +12,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'jwalton512/vim-blade'
+Plug 'udalov/kotlin-vim'
 call plug#end()
 
 " Colortheme
