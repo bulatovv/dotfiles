@@ -10,14 +10,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
-Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
 Plug 'jwalton512/vim-blade'
 Plug 'udalov/kotlin-vim'
 call plug#end()
 
 " Colortheme
 set termguicolors
-color nord
+color gruvbox
 
 " LSP
 lua require('lsp')
