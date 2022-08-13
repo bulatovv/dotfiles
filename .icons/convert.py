@@ -111,7 +111,7 @@ if __name__ == "__main__":
         Theme(
             name="Gruvbox",
             low="#928374",
-            normal="#458588",
+            normal="#83a598",
             critical="#cc241d",
             green="#98971a",
             yellow="#d79921"

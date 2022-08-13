@@ -17,6 +17,7 @@ call plug#end()
 
 " Colortheme
 set termguicolors
+let g:gruvbox_contrast_light = 'soft'
 color gruvbox
 
 " LSP
