@@ -8,7 +8,7 @@ icon=~/.icon/lan
 interval=1
 
 [wifi_status]
-command=~/.scripts/network/status.sh wlp3s0 wifi
+command=~/.scripts/network/status.sh wlan0 wifi
 interval=1
 
 #[network_speed]

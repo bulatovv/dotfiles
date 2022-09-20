@@ -38,8 +38,9 @@ set $ws10 "10 "
 ### GAPS
 for_window [class="^.*"] border pixel 2
 gaps inner $inner_gaps
-gaps left 470
-gaps top 10
+gaps left 0
+gaps top 0
+
 #gaps outer $outer_gaps
 
 ### BAR
@@ -78,7 +79,7 @@ bindsym $mod+n exec --no-startup-id "st -e newsboat"
 bindsym $mod+Shift+q kill
 
 # start dmenu
-bindsym $mod+d exec dmenu_run -nb "$Bg" -nf "$Fg" -sb "$Fg" -sf "$Bg" -fn "FiraMono Nerd Font-8.00"
+bindsym $mod+d exec dmenu_run -nb "$Bg" -nf "$Fg" -sb "$Fg" -sf "$Bg" -fn "mono-12.00"
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
