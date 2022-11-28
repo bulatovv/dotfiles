@@ -24,7 +24,7 @@ alias ".."="cd .."
 alias ls='ls --color'
 alias ovim='/bin/vim'
 alias vim=nvim
-alias rmswap="rm ~/.local/share/nvim/swap/*"
+alias rmswap="rm ~/.local/state/nvim/swap/*"
 
 alias dotsync=~/.scripts/dotsync/dotsync.sh
 alias i3-config="vim ~/.config/i3/config"

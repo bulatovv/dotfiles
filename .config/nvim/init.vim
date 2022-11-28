@@ -1,19 +1,25 @@
 " Vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
 Plug 'mattn/efm-langserver'
-Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-Plug 'ms-jpq/coq.artifacts'
-Plug 'ms-jpq/chadtree'
-Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'morhetz/gruvbox'
 Plug 'jwalton512/vim-blade'
-Plug 'udalov/kotlin-vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'andweeb/presence.nvim'
+Plug 'github/copilot.vim'
 call plug#end()
+
+let g:copilot_node_command = "~/.nvm/versions/node/v17.0.1/bin/node"
+let g:copilot_assume_mapped = v:true
 
 " Colortheme
 set termguicolors
@@ -28,15 +34,6 @@ set completeopt=menuone,noinsert,noselect
 set signcolumn=yes:1
 set updatetime=500
 
-let g:coq_settings = { 'auto_start': 'shut-up' }
-autocmd VimEnter * COQnow
-
-
-" VimWiki
-let g:vimwiki_list = [{'path': '~/Notes/src',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_ext2syntax = {}
-let g:vimwiki_global_ext = 0
 
 " Explorer
 " autocmd VimEnter * CocCommand explorer --no-focus
