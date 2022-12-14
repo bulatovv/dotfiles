@@ -125,6 +125,7 @@ if __name__ == "__main__":
         "screenshot.png": {"low", "normal"},
         "sitting.png": {"low", "normal"},
         "wifi.png": {"critical", "green", "yellow", "low"},
+        "heart.png": {"critical", "green", "yellow", "low"},
         "brightness.png": {"low"}
     }
 

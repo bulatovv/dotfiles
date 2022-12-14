@@ -11,6 +11,8 @@ state=$(echo $line | cut -d: -f3)
 last_state=$(cat ~/.cache/network/$1/last_state)
 connection=$(echo $line | cut -d: -f4)
 
+[ "$connection" = "$DURA" ] && type="heart"
+
 
 [ -d ~/.cache/network/$1 ] || mkdir -p ~/.cache/network/$1
 [ -e ~/.cache/network/$1/last_state ] || echo "disconnected" > ~/.cache/network/$1/last_state
