@@ -7,10 +7,9 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'mattn/efm-langserver'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
-Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 Plug 'jwalton512/vim-blade'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -23,8 +22,7 @@ let g:copilot_assume_mapped = v:true
 
 " Colortheme
 set termguicolors
-let g:gruvbox_contrast_light = 'soft'
-color gruvbox
+color nord
 
 " LSP
 lua require('lsp')
