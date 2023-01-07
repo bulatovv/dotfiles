@@ -19,8 +19,8 @@ client.background       $bg
 
 
 set $mod Mod4
-set $inner_gaps 15
-set $outer_gaps 0 
+set $inner_gaps 5
+set $outer_gaps -2 
 
 # Workspaces
 set $ws1 " 1 "
@@ -37,9 +37,10 @@ set $ws10 "10 "
 
 ### GAPS
 for_window [class="^.*"] border pixel 2
+smart_gaps on
 gaps inner $inner_gaps
-gaps left 0
-gaps top 0
+gaps outer $outer_gaps
+
 
 #gaps outer $outer_gaps
 
