@@ -1,4 +1,3 @@
-" Vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
@@ -15,10 +14,28 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'andweeb/presence.nvim'
 Plug 'github/copilot.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 'markdown', 'on': 'MarkdownPreview'}
 call plug#end()
 
+
+" Copilot
 let g:copilot_node_command = "~/.nvm/versions/node/v17.0.1/bin/node"
 let g:copilot_assume_mapped = v:true
+let g:copilot_filetypes = {
+    \ 'markdown': v:true,
+    \ }
+
+" Markdown Preview
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_close = 1
+let g:mkdp_port = 9999
+let g:mkdp_theme = 'light'
+let g:mkdp_page_title = '${name}'
+function OpenMarkdownPreview (url)
+    execute "silent ! $BROWSER --new-window " . a:url
+endfunction
+let g:mkdp_browserfunc = 'OpenMarkdownPreview'
+
 
 " Colortheme
 set termguicolors
