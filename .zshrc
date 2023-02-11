@@ -1,5 +1,9 @@
 fpath=(~/.zsh/plug/zsh-completions/src $fpath)
 autoload -Uz compinit; compinit
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+
 ### FUNCTIONS
 . ~/.scripts/functions.sh
 
@@ -8,8 +12,11 @@ autoload -Uz compinit; compinit
 . ~/.zsh/plug/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
 ### PROMPT
-#PROMPT="%F{4}%n%F{6}@%m %F{7}%30<...<%~%<< %F{255}> "
-PROMPT=" %F{7}%30<...<%~%<< %F{2}>%F{15} "
+zstyle ':vcs_info:git:*' formats '%b '
+setopt PROMPT_SUBST
+PROMPT='%B%F{blue}%n%f@%F{magenta}%m%f%b in %30<...<%~%<< ${vcs_info_msg_0_:+at} ${vcs_info_msg_0_}
+ %F{green}$%f '
+
 
 ### HISTORY
 HISTFILE=~/.zsh_history

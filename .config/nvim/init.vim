@@ -15,8 +15,16 @@ Plug 'junegunn/fzf.vim'
 Plug 'andweeb/presence.nvim'
 Plug 'github/copilot.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 'markdown', 'on': 'MarkdownPreview'}
+Plug 'gpanders/editorconfig.nvim'
 call plug#end()
 
+" Filetypes
+autocmd BufNewFile,BufRead *.h set filetype=c
+autocmd BufNewFile,BufRead *.inc set filetype=c
+autocmd BufRead,BufNewFile /etc/php-fpm.conf set filetype=dosini
+autocmd BufRead,BufNewFile /etc/php-fpm.d/*.conf set filetype=dosini
+autocmd BufRead,BufNewFile Dockerfile* set filetype=dockerfile
+autocmd BufRead,BufNewFile *.dockerignore set filetype=gitignore
 
 " Copilot
 let g:copilot_node_command = "~/.nvm/versions/node/v17.0.1/bin/node"
@@ -85,10 +93,6 @@ set splitright
 
 set nu
 set wildmenu
-
-" Filetypes
-autocmd BufNewFile,BufRead *.h set filetype=c
-autocmd BufNewFile,BufRead *.inc set filetype=c
 
 " Spellcheck
 "autocmd BufRead,BufNewFile *.txt,*.md set spell
