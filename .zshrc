@@ -14,7 +14,7 @@ precmd() { vcs_info }
 ### PROMPT
 zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
-PROMPT='%B%F{blue}%n%f@%F{magenta}%m%f%b in %30<...<%~%<< ${vcs_info_msg_0_:+at} ${vcs_info_msg_0_}
+PROMPT='%B%F{blue}%n%f@%F{magenta}%m%f%b in %30<...<%~%<< ${vcs_info_msg_0_:+at} %F{yellow}${vcs_info_msg_0_}$f
  %F{green}$%f '
 
 
