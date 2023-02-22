@@ -8,7 +8,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     }
 )
 
-local servers = {'pylsp', 'clangd', 'tailwindcss', 'phpactor', 'dockerls', 'tsserver'}
+local servers = {'pylsp', 'clangd', 'tailwindcss', 'phpactor', 'dockerls', 'tsserver', 'csharp_ls'}
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         on_attach = on_attach,

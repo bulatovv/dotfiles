@@ -6,5 +6,4 @@ setxkbmap -layout us,ru -option grp:alt_shift_toggle
 export $(dbus-launch)
 # eval $(gnome-keyring-daemon --start)
 # export SSH_AUTH_SOCK
-xsnow &
 exec i3

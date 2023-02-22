@@ -15,7 +15,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'andweeb/presence.nvim'
 Plug 'github/copilot.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 'markdown', 'on': 'MarkdownPreview'}
-Plug 'gpanders/editorconfig.nvim'
+# Plug 'gpanders/editorconfig.nvim'
 call plug#end()
 
 " Filetypes
