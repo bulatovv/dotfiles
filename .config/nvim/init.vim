@@ -15,6 +15,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'andweeb/presence.nvim'
 Plug 'github/copilot.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 'markdown', 'on': 'MarkdownPreview'}
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 # Plug 'gpanders/editorconfig.nvim'
 call plug#end()
 
