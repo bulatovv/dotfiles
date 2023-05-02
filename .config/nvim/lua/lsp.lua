@@ -1,7 +1,7 @@
 local lspconfig = require "lspconfig"
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
         virtual_text = false,
@@ -16,20 +16,13 @@ for _, lsp in ipairs(servers) do
     }
 end
 
-
-lspconfig.pylsp.setup {
-    settings = {
-        pylsp = {
-            plugins = {
-                pycodestyle = {
-                    enabled = false,
-                    --ignore = {'E128', 'E131'}
-                }
-            }
-        }
+lspconfig.phpactor.setup {
+    on_attach = on_attach,
+    init_options = {
+        ["worse_reflection.stub_dir"] = '%application_root%/_ide_helper.php',
     }
-}
 
+}
 
 lspconfig.efm.setup {
     on_attach = on_attach,

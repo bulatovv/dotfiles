@@ -18,7 +18,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
-# Plug 'gpanders/editorconfig.nvim'
+Plug 'morhetz/gruvbox'
+" Plug 'gpanders/editorconfig.nvim'
 call plug#end()
 
 " Filetypes
@@ -50,7 +51,7 @@ let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 
 " Colortheme
 set termguicolors
-color nord
+color gruvbox
 
 " LSP
 lua require('lsp')
