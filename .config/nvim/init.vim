@@ -9,7 +9,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'jwalton512/vim-blade'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'andweeb/presence.nvim'
@@ -18,7 +17,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 " Plug 'gpanders/editorconfig.nvim'
 call plug#end()
 
