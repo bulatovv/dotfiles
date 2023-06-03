@@ -28,6 +28,8 @@ autocmd BufRead,BufNewFile /etc/php-fpm.conf set filetype=dosini
 autocmd BufRead,BufNewFile /etc/php-fpm.d/*.conf set filetype=dosini
 autocmd BufRead,BufNewFile Dockerfile* set filetype=dockerfile
 autocmd BufRead,BufNewFile *.dockerignore set filetype=gitignore
+autocmd BufNewFile,BufRead *.xaml setlocal filetype=xml
+autocmd BufNewFile,BufRead *.axaml setlocal filetype=xml
 
 " Copilot
 let g:copilot_node_command = "~/.nvm/versions/node/v17.0.1/bin/node"
@@ -65,7 +67,7 @@ set updatetime=500
 " autocmd VimEnter * CocCommand explorer --no-focus
 " autocmd TabEnter * CocCommand explorer --no-focus
 " autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
-set autochdir      
+autocmd BufEnter * silent! lcd %:p:h
 
 " Airline
 set noshowmode
