@@ -6,11 +6,15 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'mattn/efm-langserver'
 Plug 'vim-airline/vim-airline'
-Plug 'ryanoasis/vim-devicons'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
+
 Plug 'andweeb/presence.nvim'
 Plug 'github/copilot.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 'markdown', 'on': 'MarkdownPreview'}
@@ -20,6 +24,8 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'gruvbox-community/gruvbox'
 " Plug 'gpanders/editorconfig.nvim'
 call plug#end()
+
+
 
 " Filetypes
 autocmd BufNewFile,BufRead *.h set filetype=c
@@ -61,6 +67,9 @@ autocmd CursorHold * lua vim.diagnostic.open_float()
 set completeopt=menuone,noinsert,noselect
 set signcolumn=yes:1
 set updatetime=500
+
+" Telescope
+lua require('telescope_conf')
 
 
 " Explorer
