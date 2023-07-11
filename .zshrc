@@ -10,6 +10,8 @@ precmd() { vcs_info }
 ### PLUGINS
 . ~/.zsh/plug/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 . ~/.zsh/plug/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+. ~/.zsh/plug/zsh-autoswitch-virtualenv/autoswitch_virtualenv.plugin.zsh
+
 
 ### PROMPT
 zstyle ':vcs_info:git:*' formats '%b '
