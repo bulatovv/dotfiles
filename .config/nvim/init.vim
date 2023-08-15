@@ -39,7 +39,7 @@ autocmd BufNewFile,BufRead *.axaml setlocal filetype=xml
 
 " Copilot
 let g:copilot_node_command = "~/.nvm/versions/node/v17.0.1/bin/node"
-let g:copilot_proxy = $HTTPPROXY
+let g:copilot_proxy = $HTTP_PROXY
 let g:copilot_assume_mapped = v:true
 let g:copilot_filetypes = {
     \ 'markdown': v:true,

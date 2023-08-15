@@ -8,7 +8,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     }
 )
 
-local servers = {'pylsp', 'clangd', 'tailwindcss', 'phpactor', 'dockerls', 'eslint', 'csharp_ls'}
+local servers = {'clangd', 'tailwindcss', 'phpactor', 'dockerls', 'eslint', 'csharp_ls', 'pyright'}
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         on_attach = on_attach,
@@ -27,7 +27,7 @@ lspconfig.phpactor.setup {
 lspconfig.efm.setup {
     on_attach = on_attach,
     cmd = {'efm-langserver', '-logfile', '/tmp/efm.log', '-loglevel', '5'},
-    filetypes = {'sh'},
+    filetypes = {'sh', 'python'},
     init_options = {
         documentFormatting = true, 
         --hover = true, 
@@ -44,10 +44,11 @@ lspconfig.efm.setup {
                     lintFormats = {'%f:%l:%c:%t:%m'},
                 }]]--
                 --[[{
-                    lintCommand =  'flake8 ${INPUT} -',
+                    lintCommand =  'flake8 --stdin-display-name ${INPUT} -',
                     lintStdin =  true,
-                    lintFormats = {'%f:%l:%c: %m'}
-                }]]--,
+                    lintFormats = {'%f:%l:%c: %m'},
+                                  
+                }]]--
             },
             sh = {
                 {
