@@ -13,7 +13,35 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
 	    build = ":TSUpdate",
-	    event = { "BufReadPost", "BufNewFile" }
+	    event = { "BufReadPost", "BufNewFile" },
+        cmd = { "TSUpdateSync" },
+        init = function()
+            vim.filetype.add({
+                pattern = {
+                    ['.*%.blade%.php'] = 'blade',
+                },
+            })
+        end,
+        config = function()
+            local configs = require('nvim-treesitter.configs')
+
+            configs.setup {
+                ensure_installed = { "blade", "php", "html", "phpdoc" },
+                sync_install = false,
+                highlight = { enable = true },
+                indent = { enable = true },
+            }
+
+            local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+            parser_config.blade = {
+                install_info = {
+                    url = "https://github.com/EmranMR/tree-sitter-blade",
+                    files = {"src/parser.c"},
+                    branch = "main",
+                },
+                filetype = "blade"
+            }
+        end,
     },
     {
         "hrsh7th/nvim-cmp",
@@ -30,21 +58,6 @@ return {
 	    version = "2.*",
 	    build = "make install_jsregexp",
         event = "InsertEnter",
-    },
-    {
-        "nvim-lualine/lualine.nvim",
-	    lazy = false,
-	    priority = 1000,
-	    init = function()
-            vim.opt.showmode = false
-            vim.opt.laststatus = 2
-	    end,
-        config = function()
-            require('lualine').setup()
-        end,
-	    dependencies = {
-            "nvim-tree/nvim-web-devicons",
-	    }
     },
     {
         "airblade/vim-gitgutter",
