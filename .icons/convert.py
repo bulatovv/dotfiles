@@ -115,7 +115,15 @@ if __name__ == "__main__":
             critical="#cc241d",
             green="#98971a",
             yellow="#d79921"
-        )
+        ),
+        Theme(
+            name="Shades_of_purple",
+            low="#808080",
+            normal="#6943ff",
+            critical="#d90429",
+            green="#3ad900",
+            yellow="#ffe700"
+        ),
     )
     images = {
         "battery.png": {"critical", "green", "low"},

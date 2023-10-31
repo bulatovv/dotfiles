@@ -6,8 +6,11 @@ return {
     	    servers = {
                 clangd = {},
                 dockerls = {},
-                eslint = {},
                 pyright = {},
+                arduino_language_server = {},
+                eslint = {},
+                svelte = {},
+                tsserver = {},
                 phpactor = {
                     init_options = {
                         ["worse_reflection.stub_dir"] = '%application_root%/_ide_helper.php',

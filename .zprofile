@@ -7,5 +7,5 @@ export GPG_TTY=$(tty)
 . ~/.zprofile_secrets
 
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-	startx ~/.xinitrc
+	startx .xinitrc
 fi

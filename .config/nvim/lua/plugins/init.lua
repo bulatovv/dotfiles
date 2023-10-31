@@ -1,13 +1,13 @@
 return {
     {
-        "gruvbox-community/gruvbox",
+        'Rigellute/shades-of-purple.vim',
         lazy = false,
 	    priority = 1000,
 	    init = function()
 	        vim.opt.termguicolors = true
 	    end,
 	    config = function()
-      	    vim.cmd([[colorscheme gruvbox]])
+      	    vim.cmd([[colorscheme shades_of_purple]])
     	end,
     },
     {
