@@ -141,7 +141,7 @@ void print_status(int capacity, battery_state state) {
     free(color);
 }
 
-void save_last_state(state) {
+void save_last_state(battery_state state) {
     FILE *cache_file;
 
     cache_file = fopen("/tmp/bat_last_state", "w");

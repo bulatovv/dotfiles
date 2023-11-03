@@ -24,13 +24,16 @@
     background = "background"
 
 [urgency_low]
+    background = "background"
     foreground = "color8"
     frame_color = "color8"
 
 [urgency_normal]
+    background = "background"
     foreground = "color4"
     frame_color = "color4"
 
 [urgency_critical]
+    background = "background"
     foreground = "color1"
     frame_color = "color1"

@@ -9,13 +9,13 @@
 #define base05 #c7c7c7
 #define base06 #ff77ff
 #define base07 #ffffff
-#define base08 #d90429
+#define base08 #ff628c
 #define base09 #f92a1c
-#define base0A #ffe700
-#define base0B #3ad900
-#define base0C #00c5c7
-#define base0D #6943ff
-#define base0E #ff2c70
+#define base0A #ffff60
+#define base0B #a5ff90
+#define base0C #9EFFFF
+#define base0D #a599e9
+#define base0E #ff80ff
 #define base0F #79e8fb
 
 *foreground:   base05

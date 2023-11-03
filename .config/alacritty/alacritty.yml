@@ -30,37 +30,32 @@ key_bindings:
 
 schemes:
   shades_of_purple: &shades_of_purple
-  # Shades of Purple Alacritty
-  # https://github.com/ahmadawais/shades-of-purple-alacritty
     primary:
-      background: '#1E1E3F'
-      foreground: '#FFFFFF'
+      background: '#2d2b55'
+      foreground: '#e1efff'
   
-      # Colors the cursor will use if `custom_cursor_colors` is true
     cursor:
-      text: '#1E1E3F'
-      cursor: '#FAD000'
+      text: CellBackground
+      cursor: CellForeground
   
-      # Normal colors
     normal:
       black: '#000000'
-      red: '#D52822'
-      green: '#3DB72A'
-      yellow: '#FAD000'
-      blue: '#6943FF'
-      magenta: '#FF628C'
+      red: '#ff628c'
+      green: '#a5ff90'
+      yellow: '#ffff60'
+      blue: '#a599e9'
+      magenta: '#ff80ff'
       cyan: '#9EFFFF'
       white: '#DBDBE0'
   
-      # Bright colors
     bright:
       black: '#5C5C61'
       red: '#FF000D'
-      green: '#3AD900'
+      green: '#3ad900'
       yellow: '#FAD000'
       blue: '#6943FF'
-      magenta: '#FF628C'
-      cyan: '#9EFFFF'
+      magenta: '#b362ff'
+      cyan: '#add8e6'
       white: '#FFFFFF'
 
 # Apply the color scheme.

@@ -23,13 +23,13 @@ echo $icon$perc%
 [ -e ~/.cache/battery/last_state ] || 
     echo "Charging" > ~/.cache/battery/last_state
 
-msgID="7070"
-bgcolor=$(getcolor background)
+msgID="battery-status"
+bgcolor='background'
 
 [ $state = $(cat ~/.cache/battery/last_state) ] || (
     case $state in
         Full)
-            color=$(getcolor color2)
+            color='color2'
             dunstify "Полный заряд" \
                       --appname="Батарея" \
                       --replace=$msgID \
@@ -39,7 +39,7 @@ bgcolor=$(getcolor background)
                       --icon=~/.icons/i/battery_green.png
             ;;
         Charging)
-            color=$(getcolor color2)
+            color='color2'
             dunstify "Питание подключено" \
                       --appname="Батарея" \
                       --replace=$msgID \
@@ -49,7 +49,7 @@ bgcolor=$(getcolor background)
                       --icon=~/.icons/i/battery_green.png
             ;;
         Discharging)
-            color=$(getcolor color8)
+            color='color8'
             dunstify "Питание отключено" \
                       --appname="Батарея" \
                       --replace=$msgID \
@@ -60,7 +60,7 @@ bgcolor=$(getcolor background)
                       --icon=~/.icons/i/battery_low.png
             ;;
         Critical)
-            color=$(getcolor color1)
+            color='color1'
             dunstify "Заряд на исходе" \
                       --appname="Батарея" \
                       --replace=$msgID \
