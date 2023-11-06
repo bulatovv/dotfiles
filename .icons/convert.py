@@ -119,10 +119,10 @@ if __name__ == "__main__":
         Theme(
             name="Shades_of_purple",
             low="#808080",
-            normal="#6943ff",
-            critical="#d90429",
-            green="#3ad900",
-            yellow="#ffe700"
+            normal="#a599e9",
+            critical="#ff628c",
+            green="#a5ff90",
+            yellow="#ffff60"
         ),
     )
     images = {

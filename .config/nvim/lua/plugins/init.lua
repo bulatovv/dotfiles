@@ -8,6 +8,7 @@ return {
 	    end,
 	    config = function()
       	    vim.cmd([[colorscheme shades_of_purple]])
+            vim.cmd([[hi MatchParen cterm=bold ctermbg=NONE ctermfg=NONE gui=bold guibg=NONE guifg=NONE]])
     	end,
     },
     {

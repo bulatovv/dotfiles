@@ -34,10 +34,6 @@ schemes:
       background: '#2d2b55'
       foreground: '#e1efff'
   
-    cursor:
-      text: CellBackground
-      cursor: CellForeground
-  
     normal:
       black: '#000000'
       red: '#ff628c'

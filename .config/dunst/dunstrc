@@ -1,9 +1,14 @@
 [global]
     font = Monospace 10.5
     markup = "full"
+    
+    origin= "top-right"
+    
 
-    geometry = "350x10-6-32"
-    notification_height = 102
+    width = 350
+    height = 120
+    notification_limit = 6
+
     horizontal_padding = 10
     padding = 10
     vertical_alignment = "center"
@@ -21,19 +26,16 @@
     format = "<b>%a</b>\n%s\n<i>%b</i>"
     show_indicators = "false"
 
-    background = "background"
+    background = "#1e1e3f"
 
 [urgency_low]
-    background = "background"
-    foreground = "color8"
-    frame_color = "color8"
+    foreground = "#808080"
+    frame_color = "#808080"
 
 [urgency_normal]
-    background = "background"
-    foreground = "color4"
-    frame_color = "color4"
+    foreground = "#a599e9"
+    frame_color = "#a599e9"
 
 [urgency_critical]
-    background = "background"
-    foreground = "color1"
-    frame_color = "color1"
+    foreground = "#ff628c"
+    frame_color = "#ff628c"
