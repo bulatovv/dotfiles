@@ -37,10 +37,14 @@ return {
 
             
             lspconfig = require('lspconfig')
+            capabilities = require('cmp_nvim_lsp').default_capabilities()
 
             for server, config in pairs(servers) do
-                lspconfig[server].setup(config)
+                lspconfig[server].setup{
+                    capabilities = capabilities
+                }
             end
+
         end
     }
 }
