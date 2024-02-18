@@ -11,6 +11,7 @@ return {
                 eslint = {},
                 svelte = {},
                 tsserver = {},
+                gopls = {},
                 phpactor = {
                     init_options = {
                         ["worse_reflection.stub_dir"] = '%application_root%/_ide_helper.php',

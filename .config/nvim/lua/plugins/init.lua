@@ -27,7 +27,7 @@ return {
             local configs = require('nvim-treesitter.configs')
 
             configs.setup {
-                ensure_installed = { "blade", "php", "html", "phpdoc", "javascript", "css" },
+                ensure_installed = { "blade", "php", "html", "phpdoc", "javascript", "css", "go", "gomod", "gosum" },
                 sync_install = false,
                 highlight = { enable = true },
                 indent = { enable = true },
