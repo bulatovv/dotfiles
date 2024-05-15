@@ -12,6 +12,7 @@ return {
                 svelte = {},
                 tsserver = {},
                 gopls = {},
+                rust_analyzer = {},
                 phpactor = {
                     init_options = {
                         ["worse_reflection.stub_dir"] = '%application_root%/_ide_helper.php',
