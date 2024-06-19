@@ -41,7 +41,6 @@ alias dotsync=~/.scripts/dotsync/dotsync.sh
 alias i3-config="vim ~/.config/i3/config"
 alias vim-config="vim ~/.config/nvim/init.vim"
 
-alias cocker=docker
-alias dicker=docker
-alias cocker-compose=docker-compose
-alias dicker-compose=docker-compose
+# if [ "$TERM" = 'alacritty' ]; then
+#    alias vim="swallow neovide --no-fork"
+# fi

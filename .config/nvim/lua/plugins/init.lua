@@ -108,6 +108,20 @@ return {
 	    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 	    -- install jsregexp (optional!).
 	    build = "make install_jsregexp"
+    },
+    {
+        "danirod/phel.vim",
+    },
+    {
+        'bulatovv/vim-liquidsoap',
+        init = function()
+            vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+                pattern = "*.liq",
+                callback = function()
+                    vim.bo.filetype = "liquidsoap"
+                end,
+            })
+        end
     }
    -- "gpanders/editorconfig.nvim",
 }
