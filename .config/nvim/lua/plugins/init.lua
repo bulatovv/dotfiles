@@ -16,31 +16,14 @@ return {
 	    build = ":TSUpdate",
 	    event = { "BufReadPost", "BufNewFile" },
         cmd = { "TSUpdateSync" },
-        init = function()
-            vim.filetype.add({
-                pattern = {
-                    ['.*%.blade%.php'] = 'blade',
-                },
-            })
-        end,
         config = function()
             local configs = require('nvim-treesitter.configs')
 
             configs.setup {
-                ensure_installed = { "blade", "php", "html", "phpdoc", "javascript", "css", "go", "gomod", "gosum" },
+                ensure_installed = { "php", "phpdoc", "html", "javascript", "css", "go", "gomod", "gosum" },
                 sync_install = false,
                 highlight = { enable = true },
                 indent = { enable = true },
-            }
-
-            local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-            parser_config.blade = {
-                install_info = {
-                    url = "https://github.com/EmranMR/tree-sitter-blade",
-                    files = {"src/parser.c"},
-                    branch = "main",
-                },
-                filetype = "blade"
             }
         end,
     },
@@ -79,7 +62,6 @@ return {
     {
         "github/copilot.vim",
 	    init = function()
-            vim.g.copilot_node_command = "~/.nvm/versions/node/v17.0.1/bin/node"
             vim.g.copilot_proxy = vim.env.HTTPPROXY
             vim.g.copilot_assume_mapped = true
             vim.g.copilot_filetypes = {
@@ -122,6 +104,9 @@ return {
                 end,
             })
         end
+    },
+    {
+        'mattn/emmet-vim'
     }
    -- "gpanders/editorconfig.nvim",
 }
