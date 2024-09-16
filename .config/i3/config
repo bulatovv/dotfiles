@@ -57,8 +57,9 @@ gaps outer $outer_gaps
 ### BAR
 bar {
     i3bar_command i3bar
-        font pango:mono 10.5
-	    status_command i3blocks
+    font pango:mono 10.5
+	status_command i3blocks
+    tray_output eDP
     colors {
         statusline $tx
         background $bg
