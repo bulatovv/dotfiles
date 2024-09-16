@@ -34,6 +34,16 @@ set $ws8 " 8 "
 set $ws9 " 9 "
 set $ws10 "10 "
 
+workspace $ws1 output eDP
+workspace $ws2 output eDP
+workspace $ws3 output eDP
+workspace $ws4 output eDP
+workspace $ws5 output eDP
+workspace $ws6 output HDMI-A-0
+workspace $ws7 output HDMI-A-0
+workspace $ws8 output HDMI-A-0
+workspace $ws9 output HDMI-A-0
+workspace $ws10 output eDP
 
 ### GAPS
 for_window [class="^.*"] border pixel 2
