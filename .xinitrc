@@ -3,6 +3,6 @@ dunst &
 picom -b &
 xrdb .Xresources
 setxkbmap -layout us,ru -option grp:alt_shift_toggle
-exec i3
-xrandr --output --primary eDP --right-of HDMI-A-0 &
+xrandr --output eDP --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal &
 blueman-applet &
+exec i3
