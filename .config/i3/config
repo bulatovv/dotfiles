@@ -34,16 +34,21 @@ set $ws8 " 8 "
 set $ws9 " 9 "
 set $ws10 "10 "
 
+# Dual monitors setup
+
 workspace $ws1 output eDP
 workspace $ws2 output eDP
 workspace $ws3 output eDP
 workspace $ws4 output eDP
 workspace $ws5 output eDP
-workspace $ws6 output HDMI-A-0
-workspace $ws7 output HDMI-A-0
-workspace $ws8 output HDMI-A-0
-workspace $ws9 output HDMI-A-0
+workspace $ws6 output eDP
+workspace $ws7 output eDP
+workspace $ws8 output eDP
+workspace $ws9 output eDP
 workspace $ws10 output eDP
+
+bindsym $mod+m move workspace to output left
+mouse_warping none
 
 ### GAPS
 for_window [class="^.*"] border pixel 2
@@ -82,10 +87,6 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-# start a mpd && music player
-bindsym $mod+m exec --no-startup-id ~/.scripts/music/start.sh
-# start a newsboat
-bindsym $mod+n exec --no-startup-id "st -e newsboat"
 
 # kill focused window
 bindsym $mod+Shift+q kill

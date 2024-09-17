@@ -107,6 +107,9 @@ return {
     },
     {
         'mattn/emmet-vim'
+    },
+    {
+        'amiorin/vim-textile'
     }
    -- "gpanders/editorconfig.nvim",
 }
