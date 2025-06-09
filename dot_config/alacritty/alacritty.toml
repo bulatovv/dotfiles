@@ -1,0 +1,55 @@
+[font]
+size = 11.0
+
+[font.bold]
+family = "monospace"
+style = "Bold"
+
+[font.bold_italic]
+family = "monospace"
+style = "Bold Italic"
+
+[font.italic]
+family = "monospace"
+style = "Italic"
+
+[font.normal]
+family = "monospace"
+style = "Regular"
+
+[colors.primary]
+background = '#2d2b55'
+foreground = '#e1efff'
+
+[colors.cursor]
+text = 'CellBackground'
+cursor = 'CellForeground'
+
+[colors.normal]
+black = '#000000'
+red = '#ff628c'
+green = '#a5ff90'
+yellow = '#ffff60'
+blue = '#a599e9'
+magenta = '#ff80ff'
+cyan = '#9EFFFF'
+white = '#DBDBE0'
+
+[colors.bright]
+black = '#5C5C61'
+red = '#FF000D'
+green = '#3ad900'
+yellow = '#FAD000'
+blue = '#6943FF'
+magenta = '#b362ff'
+cyan = '#add8e6'
+white = '#FFFFFF'
+
+
+[keyboard]
+bindings = [
+    { key = "C", mods = "Alt", action = "Copy" },
+    { key = "V", mods = "Alt", action = "Paste" },
+    { key = 'Return', mods = 'Alt' , action = 'SpawnNewInstance' }
+]
+		
