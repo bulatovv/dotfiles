@@ -103,4 +103,23 @@ return {
     --        })
     --    end
     --}
+    {
+        "azorng/goose.nvim",
+        config = function()
+            require("goose").setup({})
+        end,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            {
+                "MeanderingProgrammer/render-markdown.nvim",
+                opts = {
+                    anti_conceal = { enabled = false },
+                },
+            }
+        },
+        providers = {
+            "anthropic/claude-sonnet-4",
+            "deepseek/deepseek-chat-v3-0324"
+        }
+    }
 }
